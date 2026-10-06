@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dml1w7swic7fq"]
+
+[ext_resource type="Script" uid="uid://cjeaiy8ike4cw" path="res://scenes/player.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://bsks1ylogvxhl" path="res://brown-wooden-planks-texture-wood-background-vector.webp" id="2_g2els"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhqgy"]
+albedo_texture = ExtResource("2_g2els")
+
+[sub_resource type="SphereMesh" id="SphereMesh_nwnsd"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j4jmm"]
+
+[node name="player" type="RigidBody3D" unique_id=893395168]
+linear_damp = 0.5
+angular_damp = 0.5
+script = ExtResource("1_3vyb7")
+camera_follow_speed = 4.0
+
+[node name="ball meshes" type="MeshInstance3D" parent="." unique_id=132961432]
+material_override = SubResource("StandardMaterial3D_qhqgy")
+mesh = SubResource("SphereMesh_nwnsd")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1851202394]
+top_level = true
+
+[node name="Camera" type="Camera3D" parent="Node3D" unique_id=480159961]
+transform = Transform3D(1, 0, 0, 0, 0.7844299, 0.6202175, 0, -0.6202175, 0.7844299, 0, 2.3216507, 2.6403224)
+
+[node name="collision_ball" type="CollisionShape3D" parent="." unique_id=356271412]
+shape = SubResource("SphereShape3D_j4jmm")

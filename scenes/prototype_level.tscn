@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://caw8lws0tk6ss"]
+
+[ext_resource type="Texture2D" uid="uid://bwpqd5haelka5" path="res://icon.svg" id="1_kvexg"]
+[ext_resource type="PackedScene" uid="uid://dml1w7swic7fq" path="res://scenes/player.tscn" id="2_8jvw5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8jvw5"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_061g7"]
+sky_material = SubResource("ProceduralSkyMaterial_8jvw5")
+
+[sub_resource type="Environment" id="Environment_7s42t"]
+background_mode = 2
+sky = SubResource("Sky_061g7")
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8jvw5"]
+albedo_texture = ExtResource("1_kvexg")
+
+[node name="Node3D" type="Node3D" unique_id=1720358028]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2004564238]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=887295902]
+environment = SubResource("Environment_7s42t")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1269557848]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08847046, -0.45373535, -0.012924194)
+material_override = SubResource("StandardMaterial3D_8jvw5")
+use_collision = true
+size = Vector3(5.0967407, 0.0925293, 16.984222)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=527485672]
+transform = Transform3D(0.7908219, 0.6120463, 0, -0.6120463, 0.7908219, 0, 0, 0, 1, -4.054328, -2.0372941, -15.500938)
+material_override = SubResource("StandardMaterial3D_8jvw5")
+use_collision = true
+size = Vector3(11.8320465, 0.0925293, 24.688293)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=854901124]
+transform = Transform3D(0.78923535, -0.61409086, 0, 0.61409086, 0.78923535, 0, 0, 0, 1, 4.6568246, 1.0917242, 0.037902832)
+material_override = SubResource("StandardMaterial3D_8jvw5")
+use_collision = true
+size = Vector3(5.0967407, 0.0925293, 5.155884)
+
+[node name="player" parent="." unique_id=893395168 instance=ExtResource("2_8jvw5")]
