@@ -1,6 +1,6 @@
 extends RigidBody3D
 @onready var camera: Camera3D = $Node3D/Camera
-
+#test test
 var views_index = 0
 @onready var camera_holder: Node3D = $Node3D
 
