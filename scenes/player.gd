@@ -4,13 +4,14 @@ extends RigidBody3D
 var views_index = 0
 @onready var camera_holder: Node3D = $Node3D
 
-
+var current_ball: BallTypes.types
 
 var speed = 8
 @export var camera_follow_speed:float
 var pressed:bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	current_ball = BallTypes.types.wood
 	print("git?")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,14 +28,14 @@ func _physics_process(delta: float) -> void:
 	camera_holder.global_position = camera_holder.global_position.lerp(global_position, camera_follow_speed * delta)
 	camera.look_at(camera_holder.global_position)
 	if Input.is_action_just_pressed("Q"):
-		camera_rotate(-90)
-	elif Input.is_action_just_pressed("E"):
 		camera_rotate(90)
+	elif Input.is_action_just_pressed("E"):
+		camera_rotate(-90)
 	print(linear_velocity)
 func camera_rotate(amount: int):
 	if pressed == false:
 		pressed = true
 		var tween = get_tree().create_tween()
-		tween.tween_property(camera_holder, "global_rotation:y", camera_holder.global_rotation.y + deg_to_rad(amount), 0.3)
+		tween.tween_property(camera_holder, "global_rotation:y", camera_holder.global_rotation.y + deg_to_rad(amount), 0.15)
 		await tween.finished
 		pressed = false

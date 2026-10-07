@@ -1,48 +1,57 @@
 [gd_scene format=3 uid="uid://caw8lws0tk6ss"]
 
-[ext_resource type="Texture2D" uid="uid://bwpqd5haelka5" path="res://icon.svg" id="1_kvexg"]
+[ext_resource type="Texture2D" uid="uid://cgymt4xavtskh" path="res://Textures/Panorama/Panorama_Sky_21-512x512.png" id="1_061g7"]
 [ext_resource type="PackedScene" uid="uid://dml1w7swic7fq" path="res://scenes/player.tscn" id="2_8jvw5"]
+[ext_resource type="Texture2D" uid="uid://ce26qyedv8wmb" path="res://Textures/SBS - Photorealistic Texture Pack 1 - 512x512/512x512/Concrete/Photoreal_Concrete_06-512x512.png" id="2_061g7"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8jvw5"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dqkch"]
+panorama = ExtResource("1_061g7")
 
 [sub_resource type="Sky" id="Sky_061g7"]
-sky_material = SubResource("ProceduralSkyMaterial_8jvw5")
+sky_material = SubResource("PanoramaSkyMaterial_dqkch")
 
 [sub_resource type="Environment" id="Environment_7s42t"]
 background_mode = 2
 sky = SubResource("Sky_061g7")
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8jvw5"]
-albedo_texture = ExtResource("1_kvexg")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7s42t"]
+albedo_texture = ExtResource("2_061g7")
+uv1_scale = Vector3(0.105, 1.449, 0.105)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwnsd"]
+cull_mode = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_061g7")
+
+[sub_resource type="SphereMesh" id="SphereMesh_j4jmm"]
 
 [node name="Node3D" type="Node3D" unique_id=1720358028]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2004564238]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-0.027921667, 0.8656878, -0.49980503, 0, 0.49999997, 0.86602545, 0.9996101, 0.024180874, -0.013960833, 0, 0, 0)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=887295902]
 environment = SubResource("Environment_7s42t")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1269557848]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08847046, -0.45373535, -0.012924194)
-material_override = SubResource("StandardMaterial3D_8jvw5")
-use_collision = true
-size = Vector3(5.0967407, 0.0925293, 16.984222)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=527485672]
-transform = Transform3D(0.7908219, 0.6120463, 0, -0.6120463, 0.7908219, 0, 0, 0, 1, -4.054328, -2.0372941, -15.500938)
-material_override = SubResource("StandardMaterial3D_8jvw5")
-use_collision = true
-size = Vector3(11.8320465, 0.0925293, 24.688293)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=854901124]
-transform = Transform3D(0.78923535, -0.61409086, 0, 0.61409086, 0.78923535, 0, 0, 0, 1, 4.6568246, 1.0917242, 0.037902832)
-material_override = SubResource("StandardMaterial3D_8jvw5")
-use_collision = true
-size = Vector3(5.0967407, 0.0925293, 5.155884)
-
 [node name="player" parent="." unique_id=893395168 instance=ExtResource("2_8jvw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5083642, -0.1191628)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1438868515]
+transform = Transform3D(1, 0, 0, 0, 0.98022467, 0.19788773, 0, -0.19788773, 0.98022467, 0, -0.41137695, -0.035024166)
+material_override = SubResource("StandardMaterial3D_7s42t")
+use_collision = true
+size = Vector3(27.255, 0.177, 1.5090528)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=28593535]
+transform = Transform3D(1, 0, 0, 0, 0.9619342, -0.27328157, 0, 0.27328157, 0.9619342, 0, -0.41137695, -0.035024166)
+material_override = SubResource("StandardMaterial3D_7s42t")
+use_collision = true
+size = Vector3(27.255, 0.177, 1.5090528)
+
+[node name="sky" type="MeshInstance3D" parent="." unique_id=1832810521]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -0.05634737, -0.04380226, 0.024672985)
+material_override = SubResource("StandardMaterial3D_nwnsd")
+mesh = SubResource("SphereMesh_j4jmm")
+metadata/_edit_lock_ = true
