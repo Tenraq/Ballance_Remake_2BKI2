@@ -5,8 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://ce26qyedv8wmb" path="res://Textures/SBS - Photorealistic Texture Pack 1 - 512x512/512x512/Concrete/Photoreal_Concrete_06-512x512.png" id="2_061g7"]
 [ext_resource type="Script" uid="uid://28uftp3yc2fj" path="res://scenes/sky.gd" id="4_7s42t"]
 [ext_resource type="PackedScene" uid="uid://pd2s8l1op6k0" path="res://scenes/box_test.tscn" id="5_jsvdy"]
-[ext_resource type="PackedScene" uid="uid://d0tx6yqfdnqkd" path="res://MDLS/map.glb" id="6_pet5k"]
-[ext_resource type="Texture2D" uid="uid://cuu03wg3iuixh" path="res://Textures/SBS - Photorealistic Texture Pack 1 - 512x512/512x512/Concrete/Photoreal_Concrete_01-512x512.png" id="7_bfwj2"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dqkch"]
 panorama = ExtResource("1_061g7")
@@ -30,20 +28,17 @@ albedo_texture = ExtResource("1_061g7")
 
 [sub_resource type="SphereMesh" id="SphereMesh_j4jmm"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fo4hb"]
-albedo_texture = ExtResource("7_bfwj2")
-
 [node name="Node3D" type="Node3D" unique_id=1720358028]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2004564238]
-transform = Transform3D(-0.027921667, 0.8656878, -0.49980503, 0, 0.49999997, 0.86602545, 0.9996101, 0.024180872, -0.013960833, 0, 0, 0)
+transform = Transform3D(-0.027921667, 0.8656878, -0.49980503, 0, 0.49999997, 0.86602545, 0.9996101, 0.024180874, -0.013960833, 0, 0, 0)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=887295902]
 environment = SubResource("Environment_7s42t")
 
 [node name="player" parent="." unique_id=893395168 instance=ExtResource("2_8jvw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.019998193, -0.1191628)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36532688, -0.1191628)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1438868515]
 transform = Transform3D(1, 0, 0, 0, 0.98022467, 0.19788773, 0, -0.19788773, 0.98022467, 0, -0.88914967, -0.035024166)
@@ -77,15 +72,7 @@ script = ExtResource("4_7s42t")
 metadata/_edit_lock_ = true
 
 [node name="RigidBody3D2" parent="." unique_id=1531341447 instance=ExtResource("5_jsvdy")]
-transform = Transform3D(0.9935974, 0, -0.11298004, 0, 1, 0, 0.11298004, 0, 0.9935974, -0.19850713, 3.5912955, 0.28680074)
+transform = Transform3D(0.9935974, 0, -0.11298004, 0, 1, 0, 0.11298004, 0, 0.9935974, 0.19474769, 1.2872162, 0.28680062)
 
 [node name="RigidBody3D" parent="." unique_id=919639374 instance=ExtResource("5_jsvdy")]
 transform = Transform3D(0.9584521, 0, 0.28525344, 0, 1, 0, -0.28525344, 0, 0.9584521, -0.062705755, 0, 0)
-
-[node name="map" parent="." unique_id=1350461636 instance=ExtResource("6_pet5k")]
-transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -5.1015177, -1.2049865, -1.2873579)
-
-[node name="Cube" parent="map" index="0" unique_id=1575766889]
-material_override = SubResource("StandardMaterial3D_fo4hb")
-
-[editable path="map"]

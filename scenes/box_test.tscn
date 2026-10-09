@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://pd2s8l1op6k0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jsvdy"]
+bounce = 0.16
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nwnsd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_j4jmm"]
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=1531341447]
+mass = 0.2
+physics_material_override = SubResource("PhysicsMaterial_jsvdy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=895330627]
+shape = SubResource("BoxShape3D_nwnsd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1129966877]
+mesh = SubResource("BoxMesh_j4jmm")

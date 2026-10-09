@@ -4,22 +4,28 @@
 [ext_resource type="Texture2D" uid="uid://ed4wdrbquabs" path="res://Textures/SBS - Photorealistic Texture Pack 1 - 512x512/512x512/Wood/Photoreal_Wood_02-512x512.png" id="2_g2els"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_061g7"]
-friction = 0.5
 rough = true
 bounce = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhqgy"]
 albedo_texture = ExtResource("2_g2els")
+uv1_scale = Vector3(0.575, 0.575, 0.575)
+uv1_offset = Vector3(0.73, 0, 0)
 
 [sub_resource type="SphereMesh" id="SphereMesh_nwnsd"]
+radius = 0.25
+height = 0.5
 radial_segments = 16
 rings = 8
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j4jmm"]
+radius = 0.25
 
 [node name="player" type="RigidBody3D" unique_id=893395168]
+mass = 0.7
 physics_material_override = SubResource("PhysicsMaterial_061g7")
-linear_damp = 1.0
+gravity_scale = 1.5
+linear_damp = 0.5
 angular_damp = 0.5
 script = ExtResource("1_3vyb7")
 camera_follow_speed = 8.0
