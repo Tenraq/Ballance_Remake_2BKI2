@@ -43,7 +43,7 @@ shadow_enabled = true
 environment = SubResource("Environment_7s42t")
 
 [node name="player" parent="." unique_id=893395168 instance=ExtResource("2_8jvw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.019998193, -0.1191628)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.150908, 0.4666083, 0.020523727)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1438868515]
 transform = Transform3D(1, 0, 0, 0, 0.98022467, 0.19788773, 0, -0.19788773, 0.98022467, 0, -0.88914967, -0.035024166)
@@ -80,12 +80,12 @@ metadata/_edit_lock_ = true
 transform = Transform3D(0.9935974, 0, -0.11298004, 0, 1, 0, 0.11298004, 0, 0.9935974, -0.19850713, 3.5912955, 0.28680074)
 
 [node name="RigidBody3D" parent="." unique_id=919639374 instance=ExtResource("5_jsvdy")]
-transform = Transform3D(0.9584521, 0, 0.28525344, 0, 1, 0, -0.28525344, 0, 0.9584521, -0.062705755, 0, 0)
+transform = Transform3D(0.9584521, 0, 0.28525344, 0, 1, 0, -0.28525344, 0, 0.9584521, 3.5511494, 0, 0)
 
 [node name="map" parent="." unique_id=1350461636 instance=ExtResource("6_pet5k")]
 transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -5.1015177, -1.2049865, -1.2873579)
 
-[node name="Cube" parent="map" index="0" unique_id=1575766889]
+[node name="Cube" parent="map" index="0" unique_id=92062251]
 material_override = SubResource("StandardMaterial3D_fo4hb")
 
 [editable path="map"]

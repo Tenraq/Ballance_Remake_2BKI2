@@ -6,7 +6,7 @@ var views_index = 0
 
 var current_ball: BallTypes.types
 var respawn: Vector3
-var speed = 10
+var speed = 7
 @export var camera_follow_speed:float
 var pressed:bool = false
 # Called when the node enters the scene tree for the first time.
@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	input.z = Input.get_axis("W", "S")
 	var dir = camera_holder.basis * input
 	dir.y = 0
-	dir = dir.normalized()
+	#dir = dir.normalized()
 	linear_velocity = linear_velocity.limit_length(6)
 	apply_central_force(dir * speed)
 	camera_holder.global_position = camera_holder.global_position.lerp(global_position, camera_follow_speed * delta)
