@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://pd2s8l1op6k0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jsvdy"]
+friction = 0.5
 bounce = 0.16
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nwnsd"]

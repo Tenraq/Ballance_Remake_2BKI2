@@ -1,42 +1,37 @@
 [gd_scene format=3 uid="uid://dml1w7swic7fq"]
 
 [ext_resource type="Script" uid="uid://cjeaiy8ike4cw" path="res://scenes/player.gd" id="1_3vyb7"]
-[ext_resource type="Texture2D" uid="uid://ed4wdrbquabs" path="res://Textures/SBS - Photorealistic Texture Pack 1 - 512x512/512x512/Wood/Photoreal_Wood_02-512x512.png" id="2_g2els"]
+[ext_resource type="ArrayMesh" uid="uid://b2tq2iytvdm8d" path="res://MDLS/ball_meshe/wood_mesh.tres" id="2_g2els"]
+[ext_resource type="Shape3D" uid="uid://bximrmlo7sp86" path="res://MDLS/ball_meshe/normal_collison.tres" id="3_dqkch"]
+[ext_resource type="Shape3D" uid="uid://cnqowpt1tot4y" path="res://MDLS/ball_meshe/paper_collison.tres" id="3_qhqgy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_061g7"]
 rough = true
 bounce = 0.1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhqgy"]
-albedo_texture = ExtResource("2_g2els")
-uv1_scale = Vector3(0.575, 0.575, 0.575)
-uv1_offset = Vector3(0.73, 0, 0)
-
-[sub_resource type="SphereMesh" id="SphereMesh_nwnsd"]
-radius = 0.425
-height = 0.835
-radial_segments = 16
-rings = 8
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_j4jmm"]
-radius = 0.425
-
 [node name="player" type="RigidBody3D" unique_id=893395168]
 physics_material_override = SubResource("PhysicsMaterial_061g7")
-linear_damp = 0.5
-angular_damp = 0.5
+gravity_scale = 2.0
+linear_damp = 1.7
+angular_damp = 0.2
 script = ExtResource("1_3vyb7")
 camera_follow_speed = 8.0
 
-[node name="ball meshes" type="MeshInstance3D" parent="." unique_id=132961432]
-material_override = SubResource("StandardMaterial3D_qhqgy")
-mesh = SubResource("SphereMesh_nwnsd")
+[node name="ball_model" type="MeshInstance3D" parent="." unique_id=132961432]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
+mesh = ExtResource("2_g2els")
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1851202394]
 top_level = true
 
 [node name="Camera" type="Camera3D" parent="Node3D" unique_id=480159961]
-transform = Transform3D(1, 0, 0, 0, 0.7844299, 0.6202175, 0, -0.6202175, 0.7844299, 0, 2.2161136, 1.682014)
+transform = Transform3D(1, 0, 0, 0, 0.7844299, 0.6202175, 0, -0.6202175, 0.7844299, -2.3841858e-07, 2.3302164, 1.8482939)
 
 [node name="collision_ball" type="CollisionShape3D" parent="." unique_id=356271412]
-shape = SubResource("SphereShape3D_j4jmm")
+transform = Transform3D(0.845, 0, 0, 0, 0.845, 0, 0, 0, 0.845, 0, 0, 0)
+shape = ExtResource("3_dqkch")
+
+[node name="paper_collision" type="CollisionShape3D" parent="." unique_id=581569706]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
+shape = ExtResource("3_qhqgy")
+disabled = true
