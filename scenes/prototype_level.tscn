@@ -3,11 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://cea4e810nduqf" path="res://Textures/Panorama/Panorama_Sky_15-512x512.png" id="1_pet5k"]
 [ext_resource type="PackedScene" uid="uid://dml1w7swic7fq" path="res://scenes/player.tscn" id="2_8jvw5"]
 [ext_resource type="Texture2D" uid="uid://ce26qyedv8wmb" path="res://Textures/SBS - Photorealistic Texture Pack 1 - 512x512/512x512/Concrete/Photoreal_Concrete_06-512x512.png" id="2_061g7"]
-[ext_resource type="Texture2D" uid="uid://sxt241bxmd4c" path="res://Textures/Panorama/Panorama_Sky_09-512x512.png" id="3_bfwj2"]
+[ext_resource type="Texture2D" uid="uid://bewttk6hssmud" path="res://Textures/Panorama/Panorama_Sky_07-512x512.png" id="3_bfwj2"]
 [ext_resource type="Script" uid="uid://28uftp3yc2fj" path="res://scenes/sky.gd" id="4_7s42t"]
 [ext_resource type="PackedScene" uid="uid://pd2s8l1op6k0" path="res://scenes/box_test.tscn" id="5_jsvdy"]
-[ext_resource type="PackedScene" uid="uid://d0tx6yqfdnqkd" path="res://MDLS/map.glb" id="6_pet5k"]
-[ext_resource type="Texture2D" uid="uid://cuu03wg3iuixh" path="res://Textures/SBS - Photorealistic Texture Pack 1 - 512x512/512x512/Concrete/Photoreal_Concrete_01-512x512.png" id="7_bfwj2"]
+[ext_resource type="PackedScene" uid="uid://bb26pnmy7s4oa" path="res://MDLS/map2.glb" id="7_pet5k"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dqkch"]
 panorama = ExtResource("1_pet5k")
@@ -34,13 +33,11 @@ texture_repeat = false
 
 [sub_resource type="SphereMesh" id="SphereMesh_j4jmm"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fo4hb"]
-albedo_texture = ExtResource("7_bfwj2")
-
 [node name="Node3D" type="Node3D" unique_id=1720358028]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2004564238]
 transform = Transform3D(-0.027905554, 0.8821726, -0.47009876, 0.0009484668, 0.47030511, 0.88250357, 0.99961025, 0.024180874, -0.013960835, 0, 0, 0)
+light_color = Color(0.91764706, 0.7254902, 0.5764706, 1)
 light_energy = 1.755
 shadow_enabled = true
 
@@ -60,10 +57,10 @@ use_collision = true
 size = Vector3(27.255, 0.177, 1.5090528)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1296492362]
-transform = Transform3D(-0.011827991, 0.22089522, 0.9752257, 0.04561612, 0.97439766, -0.2201544, -0.9988889, 0.041882012, -0.021601595, 0, -0.9682323, -0.035024166)
+transform = Transform3D(0.96399844, 0.26590735, 0, -0.26590735, 0.96399844, 0, 0, 0, 0.9999999, -8.189964, -1.0419234, 8.762963)
 material_override = SubResource("StandardMaterial3D_7s42t")
 use_collision = true
-size = Vector3(27.255, 0.177, 1.5090528)
+size = Vector3(27.255, 0.177, 15.578435)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=998702025]
 transform = Transform3D(-0.044621572, -0.28650492, 0.9570391, 0.015154005, 0.9576887, 0.28740603, -0.9988888, 0.02732754, -0.038391873, -0.015041947, -0.96823263, -0.031092167)
@@ -86,13 +83,14 @@ mass = 1.0
 transform = Transform3D(0.9584521, 0, 0.28525344, 0, 1, 0, -0.28525344, 0, 0.9584521, 3.5511494, 0, 0)
 mass = 1.0
 
-[node name="map" parent="." unique_id=1350461636 instance=ExtResource("6_pet5k")]
-transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, -5.1015177, -1.2049865, -1.2873579)
-
-[node name="Cube" parent="map" index="0" unique_id=92062251]
-material_override = SubResource("StandardMaterial3D_fo4hb")
-
 [node name="player" parent="." unique_id=893395168 instance=ExtResource("2_8jvw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.3979545, -11.489998)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.477404, 0.37527907, -1.5302386)
 
-[editable path="map"]
+[node name="Label" type="Label" parent="." unique_id=316544353]
+offset_right = 153.0
+offset_bottom = 48.0
+scale = Vector2(4.24, 4.24)
+text = "test"
+
+[node name="map2" parent="." unique_id=593558967 instance=ExtResource("7_pet5k")]
+transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, -7.4250364, -1.1251225, -1.4864953)

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://jg0s2qus4qa7"]
+
+[ext_resource type="PackedScene" uid="uid://can8j7cqd7o3o" path="res://MDLS/fan_test.glb" id="1_fjl04"]
+[ext_resource type="Script" uid="uid://di5bmrvg2fotl" path="res://scenes/fan_test.gd" id="2_p3aqa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j4jmm"]
+size = Vector3(1, 9.867065, 1)
+
+[node name="fan_test" unique_id=1332495242 instance=ExtResource("1_fjl04")]
+script = ExtResource("2_p3aqa")
+
+[node name="detector" type="Area3D" parent="." index="2" unique_id=358476766]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="detector" index="0" unique_id=1085879057]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.4335327, 0)
+shape = SubResource("BoxShape3D_j4jmm")
+
+[connection signal="body_entered" from="detector" to="." method="_on_detector_body_entered"]
+[connection signal="body_exited" from="detector" to="." method="_on_detector_body_exited"]

@@ -9,7 +9,7 @@
 rough = true
 bounce = 0.1
 
-[node name="player" type="RigidBody3D" unique_id=893395168]
+[node name="player" type="RigidBody3D" unique_id=893395168 groups=["player"]]
 physics_material_override = SubResource("PhysicsMaterial_061g7")
 gravity_scale = 2.0
 linear_damp = 1.7
