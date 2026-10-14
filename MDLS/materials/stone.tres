@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://gbxpbwjrgfug"]
+
+[ext_resource type="Texture2D" uid="uid://clm3w2l2jy14m" path="res://MDLS/Balls_stone.png" id="1_bomis"]
+[ext_resource type="Texture2D" uid="uid://ctj0vlnhlf2c7" path="res://MDLS/Balls_stone_nrml.png" id="2_h5vcs"]
+
+[resource]
+resource_name = "stone"
+cull_mode = 2
+albedo_texture = ExtResource("1_bomis")
+roughness = 0.72199166
+normal_enabled = true
+normal_texture = ExtResource("2_h5vcs")
+metadata/_gltf_primary_texture_coord = 0

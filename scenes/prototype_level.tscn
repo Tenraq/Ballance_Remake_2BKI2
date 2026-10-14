@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dml1w7swic7fq" path="res://scenes/player.tscn" id="2_8jvw5"]
 [ext_resource type="Texture2D" uid="uid://ce26qyedv8wmb" path="res://Textures/SBS - Photorealistic Texture Pack 1 - 512x512/512x512/Concrete/Photoreal_Concrete_06-512x512.png" id="2_061g7"]
 [ext_resource type="Texture2D" uid="uid://bewttk6hssmud" path="res://Textures/Panorama/Panorama_Sky_07-512x512.png" id="3_bfwj2"]
+[ext_resource type="Material" uid="uid://8ftcevose1eo" path="res://MDLS/materials/wood.tres" id="3_fo4hb"]
 [ext_resource type="Script" uid="uid://28uftp3yc2fj" path="res://scenes/sky.gd" id="4_7s42t"]
 [ext_resource type="PackedScene" uid="uid://pd2s8l1op6k0" path="res://scenes/box_test.tscn" id="5_jsvdy"]
 [ext_resource type="PackedScene" uid="uid://bb26pnmy7s4oa" path="res://MDLS/map2.glb" id="7_pet5k"]
@@ -58,7 +59,7 @@ size = Vector3(27.255, 0.177, 1.5090528)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1296492362]
 transform = Transform3D(0.96399844, 0.26590735, 0, -0.26590735, 0.96399844, 0, 0, 0, 0.9999999, -8.189964, -1.0419234, 8.762963)
-material_override = SubResource("StandardMaterial3D_7s42t")
+material_override = ExtResource("3_fo4hb")
 use_collision = true
 size = Vector3(27.255, 0.177, 15.578435)
 
