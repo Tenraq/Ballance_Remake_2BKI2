@@ -98,9 +98,10 @@ uv1_scale = Vector3(0.35, 4.83, 0.35)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2004564238]
 transform = Transform3D(0.9872285, 0.14015, -0.075749956, 0.00094846607, 0.47030511, 0.8825033, 0.15930842, -0.8713041, 0.46416566, 0, 0, 0)
-light_color = Color(1, 0.9490196, 1, 1)
-light_energy = 1.755
-shadow_enabled = true
+light_color = Color(0.8627451, 0.80784315, 0.9490196, 1)
+light_energy = 1.81
+light_cull_mask = 4293918721
+sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=887295902]
 environment = SubResource("Environment_7s42t")

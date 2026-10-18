@@ -71,7 +71,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if over_fan:
-		apply_central_force(Vector3(0,6,0))
+		apply_central_force(Vector3(0,randf_range(2,6),0))
 	
 	
 	camera_holder.global_position = camera_holder.global_position.lerp(global_position, camera_follow_speed * delta)
