@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://3e1v8rm8gorl"]
+
+[ext_resource type="Texture2D" uid="uid://bewttk6hssmud" path="res://Textures/Panorama/Panorama_Sky_07-512x512.png" id="1_l655j"]
+
+[resource]
+cull_mode = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_l655j")
+uv1_triplanar_sharpness = 2.126474e-05
+texture_filter = 1

@@ -1,49 +1,113 @@
 [gd_scene format=3 uid="uid://caw8lws0tk6ss"]
 
-[ext_resource type="Texture2D" uid="uid://cea4e810nduqf" path="res://Textures/Panorama/Panorama_Sky_15-512x512.png" id="1_pet5k"]
 [ext_resource type="PackedScene" uid="uid://dml1w7swic7fq" path="res://scenes/player.tscn" id="2_8jvw5"]
 [ext_resource type="Texture2D" uid="uid://ce26qyedv8wmb" path="res://Textures/SBS - Photorealistic Texture Pack 1 - 512x512/512x512/Concrete/Photoreal_Concrete_06-512x512.png" id="2_061g7"]
-[ext_resource type="Texture2D" uid="uid://bewttk6hssmud" path="res://Textures/Panorama/Panorama_Sky_07-512x512.png" id="3_bfwj2"]
 [ext_resource type="Material" uid="uid://8ftcevose1eo" path="res://MDLS/materials/wood.tres" id="3_fo4hb"]
+[ext_resource type="Material" uid="uid://3e1v8rm8gorl" path="res://MDLS/materials/skybox_mat/sky1.tres" id="3_pet5k"]
 [ext_resource type="Script" uid="uid://28uftp3yc2fj" path="res://scenes/sky.gd" id="4_7s42t"]
 [ext_resource type="PackedScene" uid="uid://pd2s8l1op6k0" path="res://scenes/box_test.tscn" id="5_jsvdy"]
 [ext_resource type="PackedScene" uid="uid://bb26pnmy7s4oa" path="res://MDLS/map2.glb" id="7_pet5k"]
+[ext_resource type="PackedScene" uid="uid://jg0s2qus4qa7" path="res://scenes/fan_test.tscn" id="8_bfwj2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pet5k"]
+load_path = "res://.godot/imported/Panorama_Sky_15-512x512.png-33acca3ec381dcf86d9cc30644ea53cf.s3tc.ctex"
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dqkch"]
-panorama = ExtResource("1_pet5k")
+panorama = SubResource("CompressedTexture2D_pet5k")
 
 [sub_resource type="Sky" id="Sky_061g7"]
 sky_material = SubResource("PanoramaSkyMaterial_dqkch")
 process_mode = 1
 
 [sub_resource type="Environment" id="Environment_7s42t"]
-background_mode = 2
+background_energy_multiplier = 2.0
 sky = SubResource("Sky_061g7")
 glow_enabled = true
+glow_normalized = true
+glow_intensity = 8.0
+glow_strength = 0.2
+glow_bloom = 1.0
+
+[sub_resource type="Animation" id="Animation_bfwj2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:environment:glow_strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../sky:material_override:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fo4hb"]
+resource_name = "fail"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:environment:glow_strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.2, 2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../sky:material_override:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(4.035403, 4.035403, 4.035403, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_egcag"]
+_data = {
+&"RESET": SubResource("Animation_bfwj2"),
+&"fail": SubResource("Animation_fo4hb")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7s42t"]
 albedo_texture = ExtResource("2_061g7")
 uv1_scale = Vector3(0.35, 4.83, 0.35)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwnsd"]
-cull_mode = 1
-shading_mode = 0
-albedo_texture = ExtResource("3_bfwj2")
-texture_filter = 1
-texture_repeat = false
 
 [sub_resource type="SphereMesh" id="SphereMesh_j4jmm"]
 
 [node name="Node3D" type="Node3D" unique_id=1720358028]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2004564238]
-transform = Transform3D(-0.027905554, 0.8821726, -0.47009876, 0.0009484668, 0.47030511, 0.88250357, 0.99961025, 0.024180874, -0.013960835, 0, 0, 0)
-light_color = Color(0.91764706, 0.7254902, 0.5764706, 1)
+transform = Transform3D(0.9872285, 0.14015, -0.075749956, 0.00094846607, 0.47030511, 0.8825033, 0.15930842, -0.8713041, 0.46416566, 0, 0, 0)
+light_color = Color(1, 0.9490196, 1, 1)
 light_energy = 1.755
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=887295902]
 environment = SubResource("Environment_7s42t")
+
+[node name="animplayer" type="AnimationPlayer" parent="WorldEnvironment" unique_id=1964467029]
+libraries/ = SubResource("AnimationLibrary_egcag")
+speed_scale = 0.5
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1438868515]
 transform = Transform3D(1, 0, 0, 0, 0.98022467, 0.19788773, 0, -0.19788773, 0.98022467, -0.015041947, -0.9542428, -0.031092167)
@@ -58,10 +122,11 @@ use_collision = true
 size = Vector3(27.255, 0.177, 1.5090528)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1296492362]
-transform = Transform3D(0.96399844, 0.26590735, 0, -0.26590735, 0.96399844, 0, 0, 0, 0.9999999, -8.189964, -1.0419234, 8.762963)
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999995, -8.189964, -1.0419234, 1.9737492)
 material_override = ExtResource("3_fo4hb")
+transparency = 0.75
 use_collision = true
-size = Vector3(27.255, 0.177, 15.578435)
+size = Vector3(27.255, 0.177, 2)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=998702025]
 transform = Transform3D(-0.044621572, -0.28650492, 0.9570391, 0.015154005, 0.9576887, 0.28740603, -0.9988888, 0.02732754, -0.038391873, -0.015041947, -0.96823263, -0.031092167)
@@ -70,8 +135,8 @@ use_collision = true
 size = Vector3(27.255, 0.177, 1.5090528)
 
 [node name="sky" type="MeshInstance3D" parent="." unique_id=1832810521]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -0.05634737, -0.04380226, 0.024672985)
-material_override = SubResource("StandardMaterial3D_nwnsd")
+transform = Transform3D(-104.52842, 9.138165e-06, -994.5219, -8.742278e-05, -1000, 0, -994.5219, 8.694387e-05, 104.52842, -0.05634737, -0.04380226, 0.024672985)
+material_override = ExtResource("3_pet5k")
 mesh = SubResource("SphereMesh_j4jmm")
 script = ExtResource("4_7s42t")
 metadata/_edit_lock_ = true
@@ -85,13 +150,22 @@ transform = Transform3D(0.9584521, 0, 0.28525344, 0, 1, 0, -0.28525344, 0, 0.958
 mass = 1.0
 
 [node name="player" parent="." unique_id=893395168 instance=ExtResource("2_8jvw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.477404, 0.37527907, -1.5302386)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.477, 0.375, -1.53)
 
 [node name="Label" type="Label" parent="." unique_id=316544353]
-offset_right = 153.0
-offset_bottom = 48.0
-scale = Vector2(4.24, 4.24)
+offset_right = 288.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 46
 text = "test"
 
 [node name="map2" parent="." unique_id=593558967 instance=ExtResource("7_pet5k")]
 transform = Transform3D(0.56, 0, 0, 0, 0.56, 0, 0, 0, 0.56, -7.4250364, -1.1251225, -1.4864953)
+
+[node name="fan_test" parent="." unique_id=1332495242 instance=ExtResource("8_bfwj2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -2.3065271, -15)
+
+[node name="fan_test2" parent="." unique_id=61859512 instance=ExtResource("8_bfwj2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.117983, 2.9373655, -15)
+
+[node name="fan_test3" parent="." unique_id=683194697 instance=ExtResource("8_bfwj2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.82926, 7.355216, -15)
