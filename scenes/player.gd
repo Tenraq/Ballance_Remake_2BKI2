@@ -35,7 +35,7 @@ var fell = false
 var over_fan = false
 var ball_alive = true
 var can_control_player = true
-var lives = 1
+var lives = 10
 @onready var lives_UI: Label = $UI/lives
 
 func _ready() -> void:
@@ -62,7 +62,7 @@ func _physics_process(delta: float) -> void:
 		elif Input.is_action_just_pressed("E"):
 			camera_rotate(-90)
 		if Input.is_action_pressed("ui_accept"):
-			camera.position = camera.position.lerp(Vector3(0,7,1.848),5 * delta)
+			camera.position = camera.position.lerp(Vector3(0,6,1.848),5 * delta)
 		else:
 			camera.position = camera.position.lerp(Vector3(0,2.33,1.848),5 * delta)
 	else:
@@ -71,7 +71,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if over_fan:
-		apply_central_force(Vector3(0,randf_range(2,6),0))
+		apply_central_force(Vector3(0,4.5,0))
 	
 	
 	camera_holder.global_position = camera_holder.global_position.lerp(global_position, camera_follow_speed * delta)
@@ -146,7 +146,7 @@ func ballSwitch(typeTo: BallTypes.types):
 	elif typeTo == BallTypes.types.stone:
 		
 		
-		speed = 19
+		speed = 22
 		gravity_scale = 1.5
 		linear_damp = 0.7
 		angular_damp = 0.2

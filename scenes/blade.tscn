@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://brgfcu100hfgf"]
+
+[ext_resource type="PackedScene" uid="uid://dld8fuufhg0kg" path="res://MDLS/blade.glb" id="1_dhxgw"]
+[ext_resource type="Script" uid="uid://fvq5l8bmooi1" path="res://scenes/blade.gd" id="2_l0mm0"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_j4jmm"]
+height = 0.017910004
+radius = 0.96533203
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l655j"]
+metallic = 0.75
+roughness = 0.0
+
+[sub_resource type="Animation" id="Animation_dhxgw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_l0mm0"]
+resource_name = "rotate"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.100000024),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5707964, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6v86d"]
+_data = {
+&"RESET": SubResource("Animation_dhxgw"),
+&"rotate": SubResource("Animation_l0mm0")
+}
+
+[node name="blade" unique_id=538476058 instance=ExtResource("1_dhxgw")]
+script = ExtResource("2_l0mm0")
+
+[node name="killzone" type="Area3D" parent="." index="0" unique_id=1572496886]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="killzone" index="0" unique_id=1512731482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0045719147, 0)
+shape = SubResource("CylinderShape3D_j4jmm")
+
+[node name="Circle" parent="." index="1" unique_id=1062591651]
+material_override = SubResource("StandardMaterial3D_l655j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=1332987784]
+libraries/ = SubResource("AnimationLibrary_6v86d")
+autoplay = &"rotate"
+speed_scale = 0.995
+
+[connection signal="body_entered" from="killzone" to="." method="_on_killzone_body_entered"]
