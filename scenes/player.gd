@@ -25,7 +25,7 @@ var animationplayer: AnimationPlayer
 var current_ball: BallTypes.types
 var cycle = 0
 var respawn: Vector3
-var speed = 12
+var speed = 10
 
 @export var camera_follow_speed:float
 var pressed:bool = false
