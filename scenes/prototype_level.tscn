@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://caw8lws0tk6ss"]
 
+[ext_resource type="Texture2D" uid="uid://bewttk6hssmud" path="res://Textures/Panorama/Panorama_Sky_07-512x512.png" id="1_egcag"]
 [ext_resource type="PackedScene" uid="uid://dml1w7swic7fq" path="res://scenes/player.tscn" id="2_8jvw5"]
 [ext_resource type="Texture2D" uid="uid://ce26qyedv8wmb" path="res://Textures/SBS - Photorealistic Texture Pack 1 - 512x512/512x512/Concrete/Photoreal_Concrete_06-512x512.png" id="2_061g7"]
 [ext_resource type="Material" uid="uid://8ftcevose1eo" path="res://MDLS/materials/wood.tres" id="3_fo4hb"]
@@ -8,19 +9,18 @@
 [ext_resource type="PackedScene" uid="uid://pd2s8l1op6k0" path="res://scenes/box_test.tscn" id="5_jsvdy"]
 [ext_resource type="PackedScene" uid="uid://bb26pnmy7s4oa" path="res://MDLS/map2.glb" id="7_pet5k"]
 [ext_resource type="PackedScene" uid="uid://jg0s2qus4qa7" path="res://scenes/fan_test.tscn" id="8_bfwj2"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pet5k"]
-load_path = "res://.godot/imported/Panorama_Sky_15-512x512.png-33acca3ec381dcf86d9cc30644ea53cf.s3tc.ctex"
+[ext_resource type="PackedScene" uid="uid://brgfcu100hfgf" path="res://scenes/blade.tscn" id="9_fo4hb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dqkch"]
-panorama = SubResource("CompressedTexture2D_pet5k")
+panorama = ExtResource("1_egcag")
 
 [sub_resource type="Sky" id="Sky_061g7"]
 sky_material = SubResource("PanoramaSkyMaterial_dqkch")
 process_mode = 1
 
 [sub_resource type="Environment" id="Environment_7s42t"]
-background_energy_multiplier = 2.0
+background_mode = 2
+background_energy_multiplier = 0.65
 sky = SubResource("Sky_061g7")
 glow_enabled = true
 glow_normalized = true
@@ -82,10 +82,14 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(4.035403, 4.035403, 4.035403, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_ibnf7"]
+resource_name = "platform"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_egcag"]
 _data = {
 &"RESET": SubResource("Animation_bfwj2"),
-&"fail": SubResource("Animation_fo4hb")
+&"fail": SubResource("Animation_fo4hb"),
+&"platform": SubResource("Animation_ibnf7")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7s42t"]
@@ -94,6 +98,53 @@ uv1_scale = Vector3(0.35, 4.83, 0.35)
 
 [sub_resource type="SphereMesh" id="SphereMesh_j4jmm"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_l655j"]
+rough = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_j4jmm"]
+size = Vector3(1, 0.11816406, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_egcag"]
+data = PackedVector3Array(-0.5, 0.0591, 0.5, 0.5, 0.0591, 0.5, -0.5, -0.0591, 0.5, 0.5, 0.0591, 0.5, 0.5, -0.0591, 0.5, -0.5, -0.0591, 0.5, 0.5, 0.0591, -0.5, -0.5, 0.0591, -0.5, 0.5, -0.0591, -0.5, -0.5, 0.0591, -0.5, -0.5, -0.0591, -0.5, 0.5, -0.0591, -0.5, 0.5, 0.0591, 0.5, 0.5, 0.0591, -0.5, 0.5, -0.0591, 0.5, 0.5, 0.0591, -0.5, 0.5, -0.0591, -0.5, 0.5, -0.0591, 0.5, -0.5, 0.0591, -0.5, -0.5, 0.0591, 0.5, -0.5, -0.0591, -0.5, -0.5, 0.0591, 0.5, -0.5, -0.0591, 0.5, -0.5, -0.0591, -0.5, 0.5, 0.0591, 0.5, -0.5, 0.0591, 0.5, 0.5, 0.0591, -0.5, -0.5, 0.0591, 0.5, -0.5, 0.0591, -0.5, 0.5, 0.0591, -0.5, -0.5, -0.0591, 0.5, 0.5, -0.0591, 0.5, -0.5, -0.0591, -0.5, 0.5, -0.0591, 0.5, 0.5, -0.0591, -0.5, -0.5, -0.0591, -0.5)
+
+[sub_resource type="Animation" id="Animation_7mqg3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-9.8787775, -0.59142005, -1.4983156)]
+}
+
+[sub_resource type="Animation" id="Animation_rn0vy"]
+resource_name = "platform"
+length = 5.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 4.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-9.8787775, -0.59142005, -1.4983156), Vector3(-9.8787775, 2.0700817, -10.495196)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nbk67"]
+_data = {
+&"RESET": SubResource("Animation_7mqg3"),
+&"platform": SubResource("Animation_rn0vy")
+}
+
 [node name="Node3D" type="Node3D" unique_id=1720358028]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2004564238]
@@ -101,6 +152,7 @@ transform = Transform3D(0.9872285, 0.14015, -0.075749956, 0.00094846607, 0.47030
 light_color = Color(0.8627451, 0.80784315, 0.9490196, 1)
 light_energy = 1.81
 light_cull_mask = 4293918721
+shadow_enabled = true
 sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=887295902]
@@ -143,7 +195,7 @@ script = ExtResource("4_7s42t")
 metadata/_edit_lock_ = true
 
 [node name="RigidBody3D2" parent="." unique_id=1531341447 instance=ExtResource("5_jsvdy")]
-transform = Transform3D(0.9935974, 0, -0.11298004, 0, 1, 0, 0.11298004, 0, 0.9935974, -0.19850713, 3.5912955, 0.28680074)
+transform = Transform3D(0.9935974, 0, -0.11298004, 0, 1, 0, 0.11298004, 0, 0.9935974, -9.894509, -0.2699206, -1.7350506)
 mass = 1.0
 
 [node name="RigidBody3D" parent="." unique_id=919639374 instance=ExtResource("5_jsvdy")]
@@ -171,3 +223,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.117983, 2.9373655, -15)
 
 [node name="fan_test3" parent="." unique_id=683194697 instance=ExtResource("8_bfwj2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.82926, 7.355216, -15)
+
+[node name="blade" parent="." unique_id=538476058 instance=ExtResource("9_fo4hb")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2, -0.66103613, 0.79634535)
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="." unique_id=313073710]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.8787775, -0.59142005, -1.4983156)
+physics_material_override = SubResource("PhysicsMaterial_l655j")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AnimatableBody3D" unique_id=135141729]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44091797, 0)
+mesh = SubResource("BoxMesh_j4jmm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D" unique_id=1821887287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44091797, 0)
+shape = SubResource("ConcavePolygonShape3D_egcag")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1679721867]
+libraries/ = SubResource("AnimationLibrary_nbk67")
+autoplay = &"platform"

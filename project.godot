@@ -81,3 +81,4 @@ scaling_3d/mode=5
 textures/default_filters/texture_mipmap_bias=-1.0
 occlusion_culling/use_occlusion_culling=true
 textures=false
+textures/light_projectors/filter=5

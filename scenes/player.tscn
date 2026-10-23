@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://dxoe3kb8865cs" path="res://scenes/ui.gd" id="5_qlg0r"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_061g7"]
-rough = true
 bounce = 0.1
 
 [sub_resource type="Animation" id="Animation_qlg0r"]
