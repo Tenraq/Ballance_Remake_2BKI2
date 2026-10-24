@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bb26pnmy7s4oa" path="res://MDLS/map2.glb" id="7_pet5k"]
 [ext_resource type="PackedScene" uid="uid://jg0s2qus4qa7" path="res://scenes/fan_test.tscn" id="8_bfwj2"]
 [ext_resource type="PackedScene" uid="uid://brgfcu100hfgf" path="res://scenes/blade.tscn" id="9_fo4hb"]
+[ext_resource type="PackedScene" uid="uid://bk7wiwbuxm2s5" path="res://scenes/level_balls.tscn" id="11_ibnf7"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dqkch"]
 panorama = ExtResource("1_egcag")
@@ -241,3 +242,7 @@ shape = SubResource("ConcavePolygonShape3D_egcag")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1679721867]
 libraries/ = SubResource("AnimationLibrary_nbk67")
 autoplay = &"platform"
+
+[node name="level balls" parent="." unique_id=235609798 instance=ExtResource("11_ibnf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.332509, 2.2071497, -10.808456)
+gravity_scale = 1.3

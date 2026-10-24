@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bk7wiwbuxm2s5"]
+
+[ext_resource type="Texture2D" uid="uid://b64llg35oemhs" path="res://Textures/SBS - Photorealistic Texture Pack 1 - 512x512/512x512/Wood/Photoreal_Wood_04-512x512.png" id="1_qm2p0"]
+[ext_resource type="ArrayMesh" uid="uid://b2tq2iytvdm8d" path="res://MDLS/ball_meshe/wood_mesh.tres" id="1_wtfc1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_l655j"]
+friction = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7t8sk"]
+albedo_texture = ExtResource("1_qm2p0")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nwnsd"]
+radius = 0.42
+
+[node name="level balls" type="RigidBody3D" unique_id=235609798]
+physics_material_override = SubResource("PhysicsMaterial_l655j")
+gravity_scale = 1.6
+linear_damp = 1.7
+angular_damp = 0.2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2105892370]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_7t8sk")
+mesh = ExtResource("1_wtfc1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1150013031]
+shape = SubResource("SphereShape3D_nwnsd")

@@ -14,6 +14,7 @@ var animationplayer: AnimationPlayer
 	preload("res://MDLS/ball_meshe/paper_collison.tres"), 
 	preload("res://MDLS/ball_meshe/normal_collison.tres")
 	] 
+@onready var lookat_node_3d: Node3D = $lookatNode3D
 
 #ball Arten:
 @onready var ball_meshes: Array[ArrayMesh] = [
@@ -35,7 +36,7 @@ var fell = false
 var over_fan = false
 var ball_alive = true
 var can_control_player = true
-var lives = 10
+var lives = 1
 @onready var lives_UI: Label = $UI/lives
 
 func _ready() -> void:
@@ -75,8 +76,8 @@ func _physics_process(delta: float) -> void:
 	
 	
 	camera_holder.global_position = camera_holder.global_position.lerp(global_position, camera_follow_speed * delta)
-	
-	camera.look_at(camera_holder.position)
+	lookat_node_3d.global_position = lookat_node_3d.global_position.lerp(global_position, (camera_follow_speed * 1.7)* delta)
+	camera.look_at(lookat_node_3d.position)
 	
 	if Input.is_action_just_pressed("G"):
 		cycle = cycle + 1
