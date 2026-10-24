@@ -38,9 +38,9 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.100000024),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(0.9330321, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -1.5707964, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0.7853982, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6v86d"]
@@ -58,7 +58,7 @@ script = ExtResource("2_l0mm0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0045719147, 0)
 shape = SubResource("CylinderShape3D_j4jmm")
 
-[node name="Circle" parent="." index="1" unique_id=1062591651]
+[node name="Circle" parent="." index="1" unique_id=1783271980]
 material_override = SubResource("StandardMaterial3D_l655j")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=1332987784]

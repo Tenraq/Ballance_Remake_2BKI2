@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://jd3q8l4tvd5n"]
+
+[ext_resource type="Texture2D" uid="uid://dhnb6wv2nb1h4" path="res://Textures/Panorama/Panorama_Sky_03-512x512.png" id="1_dd5du"]
+
+[resource]
+cull_mode = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_dd5du")
+texture_filter = 1
+texture_repeat = false
