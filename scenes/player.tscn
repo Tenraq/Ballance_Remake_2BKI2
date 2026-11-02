@@ -5,9 +5,7 @@
 [ext_resource type="Shape3D" uid="uid://bximrmlo7sp86" path="res://MDLS/ball_meshe/normal_collison.tres" id="3_dqkch"]
 [ext_resource type="Shape3D" uid="uid://cnqowpt1tot4y" path="res://MDLS/ball_meshe/paper_collison.tres" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://dxoe3kb8865cs" path="res://scenes/ui.gd" id="5_qlg0r"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_061g7"]
-bounce = 0.1
+[ext_resource type="AudioStream" uid="uid://bjprsyvxf1ktj" path="res://SFX/hit/Hit_Wood_Stone.wav" id="6_tuyoq"]
 
 [sub_resource type="Animation" id="Animation_qlg0r"]
 length = 0.001
@@ -34,6 +32,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("deathscreen:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tuyoq"]
+resource_name = "fail"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("deathscreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_dqkch"]
@@ -66,12 +91,14 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qlg0r"]
 _data = {
 &"RESET": SubResource("Animation_qlg0r"),
+&"fail": SubResource("Animation_tuyoq"),
 &"gameover": SubResource("Animation_dqkch")
 }
 
 [node name="player" type="RigidBody3D" unique_id=893395168 groups=["player"]]
-physics_material_override = SubResource("PhysicsMaterial_061g7")
 gravity_scale = 1.3
+contact_monitor = true
+max_contacts_reported = 8
 linear_damp = 1.7
 angular_damp = 0.2
 script = ExtResource("1_3vyb7")
@@ -85,7 +112,7 @@ mesh = ExtResource("2_g2els")
 top_level = true
 
 [node name="Camera" type="Camera3D" parent="camera holder" unique_id=480159961]
-transform = Transform3D(1, 0, 0, 0, 0.7844299, 0.6202175, 0, -0.6202175, 0.7844299, -2.3841858e-07, 2.3302164, 1.8482939)
+transform = Transform3D(1, 0, 0, 0, 0.7844299, 0.6202175, 0, -0.6202175, 0.7844299, -2.3841858e-07, 3.4457746, 1.0037259)
 
 [node name="collision_ball" type="CollisionShape3D" parent="." unique_id=356271412]
 transform = Transform3D(0.845, 0, 0, 0, 0.845, 0, 0, 0, 0.845, 0, 0, 0)
@@ -111,13 +138,14 @@ script = ExtResource("5_qlg0r")
 libraries/ = SubResource("AnimationLibrary_qlg0r")
 
 [node name="deathscreen" type="ColorRect" parent="UI" unique_id=1073474092]
-visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="lives" type="Label" parent="UI" unique_id=1586024796]
 layout_mode = 1
@@ -153,4 +181,16 @@ text = "restart
 [node name="lookatNode3D" type="Node3D" parent="." unique_id=831524959]
 top_level = true
 
+[node name="hitsound" type="AudioStreamPlayer3D" parent="." unique_id=1761032410]
+stream = ExtResource("6_tuyoq")
+
+[node name="rollsound_wood" type="AudioStreamPlayer3D" parent="." unique_id=427016276]
+
+[node name="rollsound_stone" type="AudioStreamPlayer3D" parent="." unique_id=735873294]
+
+[node name="rollsound_metal" type="AudioStreamPlayer3D" parent="." unique_id=47739766]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="pressed" from="UI/restart" to="UI" method="_on_restart_pressed"]

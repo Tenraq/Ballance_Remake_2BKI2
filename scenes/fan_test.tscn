@@ -2,18 +2,118 @@
 
 [ext_resource type="PackedScene" uid="uid://can8j7cqd7o3o" path="res://MDLS/fan_test.glb" id="1_fjl04"]
 [ext_resource type="Script" uid="uid://di5bmrvg2fotl" path="res://scenes/fan_test.gd" id="2_p3aqa"]
+[ext_resource type="PackedScene" uid="uid://d14g574qafcle" path="res://MDLS/fan.glb" id="3_sh5nh"]
+[ext_resource type="Texture2D" uid="uid://c6my6xoqqkfi4" path="res://Textures/smoke.png" id="4_jh7ti"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j4jmm"]
-size = Vector3(1, 9.867065, 1)
+size = Vector3(1, 17.861267, 1)
+
+[sub_resource type="Animation" id="Animation_jh7ti"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fan2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_y8kd2"]
+resource_name = "fan"
+length = 0.16666667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fan2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.1415927, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2254v"]
+_data = {
+&"RESET": SubResource("Animation_jh7ti"),
+&"fan": SubResource("Animation_y8kd2")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yf5fn"]
+spread = 0.0
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 1.7999777
+gravity = Vector3(0, 20, 0)
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = -2.2351742e-06
+damping_max = 9.845
+turbulence_noise_strength = 20.0
+turbulence_noise_scale = 11.45
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57qmd"]
+shading_mode = 0
+albedo_color = Color(0.585062, 0.585062, 0.5850621, 1)
+billboard_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+lightmap_size_hint = Vector2i(2, 5)
+material = SubResource("StandardMaterial3D_57qmd")
+size = Vector2(0.005, 0.195)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5brk"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.007843138)
+albedo_texture = ExtResource("4_jh7ti")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_8epl8"]
+material = SubResource("StandardMaterial3D_l5brk")
 
 [node name="fan_test" unique_id=1332495242 instance=ExtResource("1_fjl04")]
 script = ExtResource("2_p3aqa")
 
+[node name="Cube_001" parent="." index="0" unique_id=1621715514]
+visible = false
+
+[node name="Cube" parent="." index="1" unique_id=1672750446]
+visible = false
+
+[node name="StaticBody3D" parent="Cube" index="0" unique_id=1984307917]
+visible = false
+
+[node name="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1895612083]
+visible = false
+disabled = true
+
 [node name="detector" type="Area3D" parent="." index="2" unique_id=358476766]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="detector" index="0" unique_id=1085879057]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.4335327, 0)
+transform = Transform3D(0.34, 0, 0, 0, 0.34, 0, 0, 0, 0.34, 0, 3.1912348, 0)
 shape = SubResource("BoxShape3D_j4jmm")
+
+[node name="fan2" parent="." index="3" unique_id=349818315 instance=ExtResource("3_sh5nh")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=2087494537]
+libraries/ = SubResource("AnimationLibrary_2254v")
+autoplay = &"fan"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="5" unique_id=546879557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.429, 0)
+amount = 32
+lifetime = 0.7
+process_material = SubResource("ParticleProcessMaterial_yf5fn")
+draw_passes = 2
+draw_pass_1 = SubResource("PlaneMesh_g4v7s")
+draw_pass_2 = SubResource("QuadMesh_8epl8")
 
 [connection signal="body_entered" from="detector" to="." method="_on_detector_body_entered"]
 [connection signal="body_exited" from="detector" to="." method="_on_detector_body_exited"]

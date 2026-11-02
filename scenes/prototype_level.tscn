@@ -1,103 +1,21 @@
 [gd_scene format=3 uid="uid://caw8lws0tk6ss"]
 
-[ext_resource type="Texture2D" uid="uid://bewttk6hssmud" path="res://Textures/Panorama/Panorama_Sky_07-512x512.png" id="1_egcag"]
+[ext_resource type="PackedScene" uid="uid://dl6nxkyqtbsis" path="res://scenes/world_environment.tscn" id="1_7mqg3"]
 [ext_resource type="PackedScene" uid="uid://dml1w7swic7fq" path="res://scenes/player.tscn" id="2_8jvw5"]
 [ext_resource type="Texture2D" uid="uid://ce26qyedv8wmb" path="res://Textures/SBS - Photorealistic Texture Pack 1 - 512x512/512x512/Concrete/Photoreal_Concrete_06-512x512.png" id="2_061g7"]
 [ext_resource type="Material" uid="uid://8ftcevose1eo" path="res://MDLS/materials/wood.tres" id="3_fo4hb"]
-[ext_resource type="Script" uid="uid://28uftp3yc2fj" path="res://scenes/sky.gd" id="4_7s42t"]
-[ext_resource type="Material" uid="uid://jd3q8l4tvd5n" path="res://MDLS/materials/skybox_mat/sky3.tres" id="4_egcag"]
+[ext_resource type="PackedScene" uid="uid://mkx8nsgc8fdd" path="res://scenes/sky.tscn" id="4_rn0vy"]
 [ext_resource type="PackedScene" uid="uid://pd2s8l1op6k0" path="res://scenes/box_test.tscn" id="5_jsvdy"]
 [ext_resource type="PackedScene" uid="uid://bb26pnmy7s4oa" path="res://MDLS/map2.glb" id="7_pet5k"]
 [ext_resource type="PackedScene" uid="uid://jg0s2qus4qa7" path="res://scenes/fan_test.tscn" id="8_bfwj2"]
 [ext_resource type="PackedScene" uid="uid://brgfcu100hfgf" path="res://scenes/blade.tscn" id="9_fo4hb"]
 [ext_resource type="PackedScene" uid="uid://bk7wiwbuxm2s5" path="res://scenes/level_balls.tscn" id="11_ibnf7"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dqkch"]
-panorama = ExtResource("1_egcag")
-
-[sub_resource type="Sky" id="Sky_061g7"]
-sky_material = SubResource("PanoramaSkyMaterial_dqkch")
-process_mode = 1
-
-[sub_resource type="Environment" id="Environment_7s42t"]
-background_mode = 2
-background_energy_multiplier = 0.65
-sky = SubResource("Sky_061g7")
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 8.0
-glow_strength = 0.2
-glow_bloom = 1.0
-
-[sub_resource type="Animation" id="Animation_bfwj2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:environment:glow_strength")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.2]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../sky:material_override:albedo_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_fo4hb"]
-resource_name = "fail"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:environment:glow_strength")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.2, 2.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../sky:material_override:albedo_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(4.035403, 4.035403, 4.035403, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_ibnf7"]
-resource_name = "platform"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_egcag"]
-_data = {
-&"RESET": SubResource("Animation_bfwj2"),
-&"fail": SubResource("Animation_fo4hb"),
-&"platform": SubResource("Animation_ibnf7")
-}
+[ext_resource type="PackedScene" uid="uid://dk32tgukhsfxi" path="res://MDLS/railtest.glb" id="12_7mqg3"]
+[ext_resource type="PackedScene" uid="uid://brro5iipcpuly" path="res://MDLS/railtest2.glb" id="13_rn0vy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7s42t"]
 albedo_texture = ExtResource("2_061g7")
 uv1_scale = Vector3(0.35, 4.83, 0.35)
-
-[sub_resource type="SphereMesh" id="SphereMesh_j4jmm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_l655j"]
 rough = true
@@ -156,12 +74,7 @@ light_cull_mask = 4293918721
 shadow_enabled = true
 sky_mode = 1
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=887295902]
-environment = SubResource("Environment_7s42t")
-
-[node name="animplayer" type="AnimationPlayer" parent="WorldEnvironment" unique_id=1964467029]
-libraries/ = SubResource("AnimationLibrary_egcag")
-speed_scale = 0.5
+[node name="WorldEnvironment" parent="." unique_id=591492070 instance=ExtResource("1_7mqg3")]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1438868515]
 transform = Transform3D(1, 0, 0, 0, 0.98022467, 0.19788773, 0, -0.19788773, 0.98022467, -0.015041947, -0.9542428, -0.031092167)
@@ -188,12 +101,8 @@ material_override = SubResource("StandardMaterial3D_7s42t")
 use_collision = true
 size = Vector3(27.255, 0.177, 1.5090528)
 
-[node name="sky" type="MeshInstance3D" parent="." unique_id=1832810521]
+[node name="sky" parent="." unique_id=1894587478 instance=ExtResource("4_rn0vy")]
 transform = Transform3D(-52.26421, 7.8916755e-06, -497.26096, -7.5497905e-05, -500, 4.5474735e-13, -497.26096, 7.508432e-05, 52.26421, -0.05634737, -0.04380226, 0.024672985)
-material_override = ExtResource("4_egcag")
-mesh = SubResource("SphereMesh_j4jmm")
-script = ExtResource("4_7s42t")
-metadata/_edit_lock_ = true
 
 [node name="RigidBody3D2" parent="." unique_id=1531341447 instance=ExtResource("5_jsvdy")]
 transform = Transform3D(0.9935974, 0, -0.11298004, 0, 1, 0, 0.11298004, 0, 0.9935974, -9.894509, -0.2699206, -1.7350506)
@@ -244,5 +153,80 @@ libraries/ = SubResource("AnimationLibrary_nbk67")
 autoplay = &"platform"
 
 [node name="level balls" parent="." unique_id=235609798 instance=ExtResource("11_ibnf7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.332509, 2.2071497, -10.808456)
+transform = Transform3D(0.25901973, 0.8445733, -0.4686199, -0.817939, -0.06623948, -0.5714789, -0.51369697, 0.5313268, 0.67365205, -9.151295, 8.857956, -14.278165)
+mass = 1.0
 gravity_scale = 1.3
+
+[node name="rails" type="Node3D" parent="." unique_id=670749625]
+
+[node name="railtest" parent="rails" unique_id=896861657 instance=ExtResource("12_7mqg3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -17)
+
+[node name="railtest3" parent="rails" unique_id=1500027297 instance=ExtResource("12_7mqg3")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, 0, -18)
+
+[node name="railtest21" parent="rails" unique_id=648669905 instance=ExtResource("12_7mqg3")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -19)
+
+[node name="railtest15" parent="rails" unique_id=1834026347 instance=ExtResource("12_7mqg3")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -5, 0, -18)
+
+[node name="railtest16" parent="rails" unique_id=1322093352 instance=ExtResource("12_7mqg3")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -5, 0, -19)
+
+[node name="railtest4" parent="rails" unique_id=194434496 instance=ExtResource("12_7mqg3")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -4, 0, -16)
+
+[node name="railtest5" parent="rails" unique_id=1156427949 instance=ExtResource("12_7mqg3")]
+transform = Transform3D(-1, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -1, -3, 0, -16)
+
+[node name="railtest2" parent="rails" unique_id=1207460941 instance=ExtResource("13_rn0vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -16.002716)
+
+[node name="railtest17" parent="rails" unique_id=318593379 instance=ExtResource("13_rn0vy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 0, -19.002716)
+
+[node name="railtest18" parent="rails" unique_id=845046682 instance=ExtResource("13_rn0vy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 0, -19.002716)
+
+[node name="railtest19" parent="rails" unique_id=1251619156 instance=ExtResource("13_rn0vy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, -19.002716)
+
+[node name="railtest20" parent="rails" unique_id=2109666364 instance=ExtResource("13_rn0vy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, -19.002716)
+
+[node name="railtest7" parent="rails" unique_id=2015271174 instance=ExtResource("13_rn0vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -15.002716)
+
+[node name="railtest14" parent="rails" unique_id=251570896 instance=ExtResource("13_rn0vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -17.002716)
+
+[node name="railtest8" parent="rails" unique_id=341913991 instance=ExtResource("13_rn0vy")]
+transform = Transform3D(0.10653358, 0.9943091, 0, -0.9943091, 0.10653358, 0, 0, 0, 1, -5, 1.4117498, -13.728793)
+
+[node name="railtest9" parent="rails" unique_id=562782957 instance=ExtResource("13_rn0vy")]
+transform = Transform3D(0.10653358, 0.9943091, 0, -0.9943091, 0.10653358, 0, 0, 0, 1, -5, 1.4117498, -12.728793)
+
+[node name="railtest10" parent="rails" unique_id=1208420439 instance=ExtResource("13_rn0vy")]
+transform = Transform3D(0.10653358, 0.9943091, 0, -0.9943091, 0.10653358, 0, 0, 0, 1, -5, 1.4117498, -11.728793)
+
+[node name="railtest11" parent="rails" unique_id=882071170 instance=ExtResource("13_rn0vy")]
+transform = Transform3D(0.10653358, 0.9943091, 0, -0.9943091, 0.10653358, 0, 0, 0, 1, -5, 1.4117498, -10.728793)
+
+[node name="railtest12" parent="rails" unique_id=1603477525 instance=ExtResource("13_rn0vy")]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, -5, -0.16333246, -8.564085)
+
+[node name="railtest13" parent="rails" unique_id=1940232925 instance=ExtResource("13_rn0vy")]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, -5, 0.33666754, -9.447041)
+
+[node name="railtest6" parent="rails" unique_id=331751494 instance=ExtResource("13_rn0vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -17.002716)
+
+[node name="railtest22" parent="rails" unique_id=688336741 instance=ExtResource("13_rn0vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.002716)
+
+[node name="railtest23" parent="rails" unique_id=1633096474 instance=ExtResource("13_rn0vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.002716)
+
+[node name="railtest24" parent="rails" unique_id=739921397 instance=ExtResource("13_rn0vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.002716)

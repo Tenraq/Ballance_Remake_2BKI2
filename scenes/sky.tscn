@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://mkx8nsgc8fdd"]
+
+[ext_resource type="Material" uid="uid://jd3q8l4tvd5n" path="res://MDLS/materials/skybox_mat/sky3.tres" id="1_qk45w"]
+[ext_resource type="Script" uid="uid://28uftp3yc2fj" path="res://scenes/sky.gd" id="2_3hy4n"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_j4jmm"]
+
+[node name="sky" type="MeshInstance3D" unique_id=1894587478]
+transform = Transform3D(-52.26421, 7.8916755e-06, -497.26096, -7.5497905e-05, -500, 4.5474735e-13, -497.26096, 7.508432e-05, 52.26421, 0, 0, 0)
+material_override = ExtResource("1_qk45w")
+mesh = SubResource("SphereMesh_j4jmm")
+script = ExtResource("2_3hy4n")
+metadata/_edit_lock_ = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=330390369]
+transform = Transform3D(2.785465e-05, -0.0009945218, -0.0017349783, -0.00010452818, 0.0017320506, -0.0009945217, 0.001997072, 0.000104528124, -2.7855e-05, 0, 0, 0)
+light_energy = 0.0

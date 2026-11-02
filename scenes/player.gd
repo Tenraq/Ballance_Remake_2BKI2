@@ -3,8 +3,7 @@
 extends RigidBody3D
 @onready var camera: Camera3D = $"camera holder/Camera"
 @onready var camera_holder: Node3D = $"camera holder"
-@onready var world_environment: WorldEnvironment = $"../WorldEnvironment"
-var animationplayer: AnimationPlayer
+
 @onready var deathscreen: ColorRect = $UI/deathscreen
 @onready var u_ianims: AnimationPlayer = $UI/UIanims
 
@@ -33,18 +32,26 @@ var pressed:bool = false
 
 var cam_y_position
 var fell = false
-var over_fan = false
+var over_fan = 0
 var ball_alive = true
 var can_control_player = true
 var lives = 1
 @onready var lives_UI: Label = $UI/lives
 
+#audio_nodes
+@onready var hitsound: AudioStreamPlayer3D = $hitsound
+@onready var rollsound_wood: AudioStreamPlayer3D = $rollsound_wood
+@onready var rollsound_stone: AudioStreamPlayer3D = $rollsound_stone
+@onready var rollsound_metal: AudioStreamPlayer3D = $rollsound_metal
+
+
+#-----------------------------------------ready-----------------------------------------
+
 func _ready() -> void:
 	current_ball = BallTypes.types.wood
 	print("git?")
 	respawn = global_position
-	animationplayer = get_tree().root.find_child("animplayer", true, false)
-	print(animationplayer)
+
 	lives_UI.text = "Lives: " + str(lives)
 
 #-----------------------------------------physics_process-----------------------------------------
@@ -63,16 +70,14 @@ func _physics_process(delta: float) -> void:
 		elif Input.is_action_just_pressed("E"):
 			camera_rotate(-90)
 		if Input.is_action_pressed("ui_accept"):
-			camera.position = camera.position.lerp(Vector3(0,6,1.848),5 * delta)
+			camera.position = camera.position.lerp(Vector3(0,6.6,1.2),5 * delta)
 		else:
-			camera.position = camera.position.lerp(Vector3(0,2.33,1.848),5 * delta)
+			camera.position = camera.position.lerp(Vector3(0,3,1.2),5 * delta)
 	else:
 		fall_cam(camera.global_position.y)
 		camera.global_position.y = cam_y_position
 	
-	
-	if over_fan:
-		apply_central_force(Vector3(0,4.5,0))
+	apply_central_force(Vector3(0,4.5 * over_fan,0))
 	
 	
 	camera_holder.global_position = camera_holder.global_position.lerp(global_position, camera_follow_speed * delta)
@@ -98,14 +103,14 @@ func _physics_process(delta: float) -> void:
 			if lives > 0:
 				axis_lock_linear_x = true
 				axis_lock_linear_z = true
-				animationplayer.play("fail")
-				await animationplayer.animation_finished
-				deathscreen.show()
+				u_ianims.play("fail")
+				await u_ianims.animation_finished
+				
 				global_position = respawn
 				await  get_tree().create_timer(1).timeout
-				deathscreen.hide()
+				
 				ball_alive = true
-				animationplayer.play_backwards("fail")
+				u_ianims.play_backwards("fail")
 				lives -= 1
 				lives_UI.text = "Lives: " + str(lives)
 				axis_lock_linear_x = false
@@ -184,3 +189,15 @@ func fall_cam(y: float):
 		cam_y_position = y
 		await get_tree().create_timer(2).timeout
 		u_ianims.play("gameover")
+
+
+func _on_body_entered(body: Node) -> void:
+	pass
+
+
+func _on_body_exited(body: Node) -> void:
+	pass # Replace with function body.
+
+
+func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
+	print(get_colliding_bodies()) # Replace with function body.

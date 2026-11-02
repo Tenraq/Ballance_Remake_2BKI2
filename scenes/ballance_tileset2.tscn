@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bo4ljokfa32sn"]
+
+[ext_resource type="PackedScene" uid="uid://b85t21m3wh3jf" path="res://MDLS/Ballance_tileset.glb" id="1_1cyxm"]
+
+[node name="Ballance_tileset" unique_id=1011329643 instance=ExtResource("1_1cyxm")]

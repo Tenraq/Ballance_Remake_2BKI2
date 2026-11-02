@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dl6nxkyqtbsis"]
+
+[ext_resource type="PackedScene" uid="uid://mkx8nsgc8fdd" path="res://scenes/sky.tscn" id="1_dq0xd"]
+
+[node name="WorldEnvironment" unique_id=591492070]
+
+[node name="sky" parent="." index="1" unique_id=1894587478 instance=ExtResource("1_dq0xd")]

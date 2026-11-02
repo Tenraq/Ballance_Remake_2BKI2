@@ -5,10 +5,9 @@ extends Node3D
 
 
 func _on_detector_body_exited(body: Node3D) -> void:
-	if body.is_in_group("player"):
-		body.over_fan = false
-
+	if body is RigidBody3D:
+		body.over_fan -= 1
 
 func _on_detector_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player"):
-		body.over_fan = true
+	if body is RigidBody3D:
+		body.over_fan += 1
