@@ -57,6 +57,16 @@ damping_max = 9.845
 turbulence_noise_strength = 20.0
 turbulence_noise_scale = 11.45
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5brk"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.015686275)
+albedo_texture = ExtResource("4_jh7ti")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_8epl8"]
+material = SubResource("StandardMaterial3D_l5brk")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57qmd"]
 shading_mode = 0
 albedo_color = Color(0.585062, 0.585062, 0.5850621, 1)
@@ -68,29 +78,19 @@ material = SubResource("StandardMaterial3D_57qmd")
 size = Vector2(0.005, 0.195)
 orientation = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5brk"]
-transparency = 1
-shading_mode = 0
-albedo_color = Color(1, 1, 1, 0.007843138)
-albedo_texture = ExtResource("4_jh7ti")
-billboard_mode = 1
-
-[sub_resource type="QuadMesh" id="QuadMesh_8epl8"]
-material = SubResource("StandardMaterial3D_l5brk")
-
 [node name="fan_test" unique_id=1332495242 instance=ExtResource("1_fjl04")]
 script = ExtResource("2_p3aqa")
 
-[node name="Cube_001" parent="." index="0" unique_id=1621715514]
+[node name="Cube_001" parent="." index="0" unique_id=405446392]
 visible = false
 
-[node name="Cube" parent="." index="1" unique_id=1672750446]
+[node name="Cube" parent="." index="1" unique_id=1053672234]
 visible = false
 
-[node name="StaticBody3D" parent="Cube" index="0" unique_id=1984307917]
+[node name="StaticBody3D" parent="Cube" index="0" unique_id=438611497]
 visible = false
 
-[node name="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1895612083]
+[node name="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1543008369]
 visible = false
 disabled = true
 
@@ -106,14 +106,21 @@ shape = SubResource("BoxShape3D_j4jmm")
 libraries/ = SubResource("AnimationLibrary_2254v")
 autoplay = &"fan"
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="5" unique_id=546879557]
+[node name="smoke" type="GPUParticles3D" parent="." index="5" unique_id=546879557]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.429, 0)
-amount = 32
+amount = 16
+lifetime = 0.7
+process_material = SubResource("ParticleProcessMaterial_yf5fn")
+draw_passes = 2
+draw_pass_2 = SubResource("QuadMesh_8epl8")
+
+[node name="air" type="GPUParticles3D" parent="." index="6" unique_id=731391652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.429, 0)
 lifetime = 0.7
 process_material = SubResource("ParticleProcessMaterial_yf5fn")
 draw_passes = 2
 draw_pass_1 = SubResource("PlaneMesh_g4v7s")
-draw_pass_2 = SubResource("QuadMesh_8epl8")
+draw_pass_2 = null
 
 [connection signal="body_entered" from="detector" to="." method="_on_detector_body_entered"]
 [connection signal="body_exited" from="detector" to="." method="_on_detector_body_exited"]
