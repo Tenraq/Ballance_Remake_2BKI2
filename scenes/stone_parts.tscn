@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://dlqkhuhtktpie"]
 
+[ext_resource type="Script" uid="uid://crmvmlaijlbwp" path="res://scenes/stone_parts.gd" id="1_17s12"]
 [ext_resource type="Texture2D" uid="uid://2pv8hc7cos14" path="res://MDLS/balls_parts/stone_parts_stone.png" id="1_vk6hl"]
 [ext_resource type="Texture2D" uid="uid://bo2w78gs88o5" path="res://MDLS/balls_parts/stone_parts_stone_nrml.png" id="2_17s12"]
 
@@ -828,6 +829,8 @@ points = PackedVector3Array(0.24192318, 0.035032574, -0.32209972, 0.23986349, 0.
 
 [node name="stone_parts" type="Node3D" unique_id=1932538120]
 transform = Transform3D(0.43, 0, 0, 0, 0.43, 0, 0, 0, 0.43, 0, 0, 0)
+script = ExtResource("1_17s12")
+power = 0.5
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=75485147]
 mass = 0.2
