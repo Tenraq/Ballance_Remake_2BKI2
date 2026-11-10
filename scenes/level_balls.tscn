@@ -16,7 +16,7 @@ radius = 0.42
 
 [node name="level balls" type="RigidBody3D" unique_id=235609798]
 physics_material_override = SubResource("PhysicsMaterial_l655j")
-gravity_scale = 1.6
+gravity_scale = 1.3
 linear_damp = 1.7
 angular_damp = 0.2
 script = ExtResource("1_7t8sk")

@@ -112,6 +112,7 @@ transform = Transform3D(0.34, 0, 0, 0, 0.34, 0, 0, 0, 0.34, 0, 3.1912348, 0)
 shape = SubResource("BoxShape3D_j4jmm")
 
 [node name="fan2" parent="." index="3" unique_id=349818315 instance=ExtResource("3_sh5nh")]
+transform = Transform3D(0.68, 0, 0, 0, 0.68, 0, 0, 0, 0.68, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=2087494537]
 libraries/ = SubResource("AnimationLibrary_2254v")

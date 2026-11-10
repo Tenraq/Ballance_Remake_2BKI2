@@ -191,11 +191,11 @@ func fall_cam(y: float):
 		u_ianims.play("gameover")
 
 
-func _on_body_entered(body: Node) -> void:
+func _on_body_entered(_body: Node) -> void:
 	pass
 
 
-func _on_body_exited(body: Node) -> void:
+func _on_body_exited(_body: Node) -> void:
 	pass # Replace with function body.
 
 
