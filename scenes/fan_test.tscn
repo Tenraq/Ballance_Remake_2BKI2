@@ -46,6 +46,13 @@ _data = {
 &"fan": SubResource("Animation_y8kd2")
 }
 
+[sub_resource type="Curve" id="Curve_y8kd2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jh7ti"]
+curve = SubResource("Curve_y8kd2")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yf5fn"]
 spread = 0.0
 radial_velocity_min = -2.2351742e-05
@@ -54,12 +61,14 @@ gravity = Vector3(0, 20, 0)
 tangential_accel_min = -2.2351742e-06
 tangential_accel_max = -2.2351742e-06
 damping_max = 9.845
+alpha_curve = SubResource("CurveTexture_jh7ti")
 turbulence_noise_strength = 20.0
 turbulence_noise_scale = 11.45
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5brk"]
 transparency = 1
 shading_mode = 0
+vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 0.015686275)
 albedo_texture = ExtResource("4_jh7ti")
 billboard_mode = 1
@@ -81,20 +90,22 @@ orientation = 2
 [node name="fan_test" unique_id=1332495242 instance=ExtResource("1_fjl04")]
 script = ExtResource("2_p3aqa")
 
-[node name="Cube_001" parent="." index="0" unique_id=405446392]
+[node name="Cube_001" parent="." index="0" unique_id=1621715514]
 visible = false
 
-[node name="Cube" parent="." index="1" unique_id=1053672234]
+[node name="Cube" parent="." index="1" unique_id=1672750446]
 visible = false
 
-[node name="StaticBody3D" parent="Cube" index="0" unique_id=438611497]
+[node name="StaticBody3D" parent="Cube" index="0" unique_id=1984307917]
 visible = false
 
-[node name="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1543008369]
+[node name="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1895612083]
 visible = false
 disabled = true
 
 [node name="detector" type="Area3D" parent="." index="2" unique_id=358476766]
+collision_layer = 6
+collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="detector" index="0" unique_id=1085879057]
 transform = Transform3D(0.34, 0, 0, 0, 0.34, 0, 0, 0, 0.34, 0, 3.1912348, 0)
@@ -107,7 +118,7 @@ libraries/ = SubResource("AnimationLibrary_2254v")
 autoplay = &"fan"
 
 [node name="smoke" type="GPUParticles3D" parent="." index="5" unique_id=546879557]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.429, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.120572954, 0)
 amount = 16
 lifetime = 0.7
 process_material = SubResource("ParticleProcessMaterial_yf5fn")
@@ -116,7 +127,7 @@ draw_pass_2 = SubResource("QuadMesh_8epl8")
 
 [node name="air" type="GPUParticles3D" parent="." index="6" unique_id=731391652]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.429, 0)
-lifetime = 0.7
+lifetime = 0.4
 process_material = SubResource("ParticleProcessMaterial_yf5fn")
 draw_passes = 2
 draw_pass_1 = SubResource("PlaneMesh_g4v7s")

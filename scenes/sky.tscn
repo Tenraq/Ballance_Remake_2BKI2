@@ -14,4 +14,5 @@ metadata/_edit_lock_ = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=330390369]
 transform = Transform3D(2.785465e-05, -0.0009945218, -0.0017349783, -0.00010452818, 0.0017320506, -0.0009945217, 0.001997072, 0.000104528124, -2.7855e-05, 0, 0, 0)
+light_energy = 0.25
 shadow_enabled = true

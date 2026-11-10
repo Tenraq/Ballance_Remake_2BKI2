@@ -6,7 +6,6 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tskjn"]
 resource_name = "stone"
 cull_mode = 2
-albedo_color = Color(0.556953, 0.556953, 0.556953, 1)
 albedo_texture = ExtResource("1_ynrcg")
 normal_enabled = true
 normal_texture = ExtResource("2_0vy4r")
