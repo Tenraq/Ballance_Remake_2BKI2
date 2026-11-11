@@ -1,6 +1,6 @@
+extends RigidBody3D
 #-----------------------------------------Variablen-----------------------------------------
 
-extends RigidBody3D
 @onready var camera: Camera3D = $"camera holder/Camera"
 @onready var camera_holder: Node3D = $"camera holder"
 
@@ -44,6 +44,12 @@ var lives = 1
 @onready var rollsound_stone: AudioStreamPlayer3D = $rollsound_stone
 @onready var rollsound_metal: AudioStreamPlayer3D = $rollsound_metal
 
+@export var wood_parts:PackedScene
+@export var stone_parts:PackedScene
+@export var paper_parts:PackedScene
+
+
+
 
 #-----------------------------------------ready-----------------------------------------
 
@@ -51,7 +57,7 @@ func _ready() -> void:
 	current_ball = BallTypes.types.wood
 	print("git?")
 	respawn = global_position
-
+	
 	lives_UI.text = "Lives: " + str(lives)
 
 #-----------------------------------------physics_process-----------------------------------------
@@ -89,10 +95,55 @@ func _physics_process(delta: float) -> void:
 		if cycle > 2:
 			cycle = 0
 		if cycle == 0:
+			if current_ball == BallTypes.types.wood:
+				var wood_parts_inst:Node3D = wood_parts.instantiate()
+				get_parent().add_child(wood_parts_inst)
+				wood_parts_inst.position = self.position
+				wood_parts_inst.rotation = self.rotation
+			elif current_ball == BallTypes.types.stone:
+				var stone_parts_inst:Node3D = stone_parts.instantiate()
+				get_parent().add_child(stone_parts_inst)
+				stone_parts_inst.position = self.position
+				stone_parts_inst.rotation = self.rotation
+			else:
+				var paper_parts_inst:Node3D = paper_parts.instantiate()
+				get_parent().add_child(paper_parts_inst)
+				paper_parts_inst.position = self.position
+				paper_parts_inst.rotation = self.rotation
 			ballSwitch(BallTypes.types.wood)
 		if cycle == 1:
+			if current_ball == BallTypes.types.wood:
+				var wood_parts_inst:Node3D = wood_parts.instantiate()
+				get_parent().add_child(wood_parts_inst)
+				wood_parts_inst.position = self.position
+				wood_parts_inst.rotation = self.rotation
+			elif current_ball == BallTypes.types.stone:
+				var stone_parts_inst:Node3D = stone_parts.instantiate()
+				get_parent().add_child(stone_parts_inst)
+				stone_parts_inst.position = self.position
+				stone_parts_inst.rotation = self.rotation
+			else:
+				var paper_parts_inst:Node3D = paper_parts.instantiate()
+				get_parent().add_child(paper_parts_inst)
+				paper_parts_inst.position = self.position
+				paper_parts_inst.rotation = self.rotation
 			ballSwitch(BallTypes.types.stone)
 		if cycle == 2:
+			if current_ball == BallTypes.types.wood:
+				var wood_parts_inst:Node3D = wood_parts.instantiate()
+				get_parent().add_child(wood_parts_inst)
+				wood_parts_inst.position = self.position
+				wood_parts_inst.rotation = self.rotation
+			elif current_ball == BallTypes.types.stone:
+				var stone_parts_inst:Node3D = stone_parts.instantiate()
+				get_parent().add_child(stone_parts_inst)
+				stone_parts_inst.position = self.position
+				stone_parts_inst.rotation = self.rotation
+			else:
+				var paper_parts_inst:Node3D = paper_parts.instantiate()
+				get_parent().add_child(paper_parts_inst)
+				paper_parts_inst.position = self.position
+				paper_parts_inst.rotation = self.rotation
 			ballSwitch(BallTypes.types.paper)
 	
 	
@@ -133,7 +184,7 @@ func camera_rotate(amount: int):
 #-----------------------------------------ballSwitch-----------------------------------------
 func ballSwitch(typeTo: BallTypes.types):
 	if typeTo == BallTypes.types.wood:
-		
+		current_ball = typeTo
 		
 		speed = 10
 		gravity_scale = 1.3
@@ -150,7 +201,7 @@ func ballSwitch(typeTo: BallTypes.types):
 		#---------------------------------
 		
 	elif typeTo == BallTypes.types.stone:
-		
+		current_ball = typeTo
 		
 		speed = 22
 		gravity_scale = 1.5
@@ -167,7 +218,7 @@ func ballSwitch(typeTo: BallTypes.types):
 		#---------------------------------
 		
 	elif typeTo == BallTypes.types.paper:
-		
+		current_ball = typeTo
 		
 		speed = 4
 		gravity_scale = 1.0

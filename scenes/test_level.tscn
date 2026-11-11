@@ -6,9 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://jg0s2qus4qa7" path="res://scenes/fan_test.tscn" id="3_j6w7d"]
 [ext_resource type="PackedScene" uid="uid://mkx8nsgc8fdd" path="res://scenes/sky.tscn" id="4_x4b8f"]
 [ext_resource type="PackedScene" uid="uid://bk7wiwbuxm2s5" path="res://scenes/level_balls.tscn" id="5_tmr53"]
-[ext_resource type="PackedScene" uid="uid://cujf3wnmo0wyq" path="res://scenes/paper_parts.tscn" id="7_88ety"]
-[ext_resource type="PackedScene" uid="uid://dlqkhuhtktpie" path="res://scenes/stone_parts.tscn" id="8_ahbqi"]
-[ext_resource type="PackedScene" uid="uid://cvbovednn7gyl" path="res://scenes/wood_parts.tscn" id="9_7gix3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_paw1w"]
 sky_top_color = Color(0.41326728, 0.38111505, 0.2565251, 1)
@@ -52,12 +49,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.500186, 0.3209445, -16.49
 
 [node name="level balls" parent="." unique_id=235609798 instance=ExtResource("5_tmr53")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.139907, 7.918849, -13.581642)
-
-[node name="paper_parts2" parent="." unique_id=706525745 instance=ExtResource("7_88ety")]
-transform = Transform3D(0.43, 0, 0, 0, 0.43, 0, 0, 0, 0.43, -14.82678, 6.803767, -14.922817)
-
-[node name="stone_parts" parent="." unique_id=1932538120 instance=ExtResource("8_ahbqi")]
-transform = Transform3D(0.43, 0, 0, 0, 0.43, 0, 0, 0, 0.43, -13.997176, 7.5223823, -15.69058)
-
-[node name="wood_parts" parent="." unique_id=1561389423 instance=ExtResource("9_7gix3")]
-transform = Transform3D(0.43, 0, 0, 0, 0.43, 0, 0, 0, 0.43, -13.973153, 12.108221, -13.396595)

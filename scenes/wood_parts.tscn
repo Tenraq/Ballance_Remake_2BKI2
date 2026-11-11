@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://cvbovednn7gyl"]
 
+[ext_resource type="Script" uid="uid://0a0nvatsnhj1" path="res://scenes/wood_parts.gd" id="1_lq7ms"]
 [ext_resource type="Texture2D" uid="uid://c70tx5wcp5cf3" path="res://MDLS/balls_parts/wood_parts_Photoreal_Wood_02-512x512.png" id="1_o1uhn"]
 [ext_resource type="Texture2D" uid="uid://cujnb0i75xhcb" path="res://MDLS/balls_parts/wood_parts_Photoreal_Wood_02-512x512Nrml.png" id="2_lq7ms"]
 
@@ -1050,7 +1051,9 @@ shadow_mesh = SubResource("ArrayMesh_flk37")
 points = PackedVector3Array(0.26403183, -0.05007878, -0.18512164, 0.26088876, -0.058337867, -0.18979761, 0.20195618, 0.058306023, -0.33494484, -0.06996852, -0.05007878, 0.31475878, -0.030581906, 0.050046936, -0.18640274, 0.19881311, 0.050046936, -0.33962083, -0.075518, -0.058337867, 0.31360584, 0.08409104, -0.058337867, -0.07168132, -0.026653081, 0.05836314, -0.18243136, -0.23218042, 0.058306023, 0.31469476, -0.2376808, 0.050046936, 0.31360584, -0.03401965, -0.058337867, 0.1051088, -0.18385571, 0.050046936, 0.043040097, -0.17874822, 0.05836314, 0.045153886)
 
 [node name="wood_parts" type="Node3D" unique_id=1561389423]
-transform = Transform3D(0.43, 0, 0, 0, 0.43, 0, 0, 0, 0.43, 0, 0, 0)
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
+script = ExtResource("1_lq7ms")
+power = 5.0
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1537510167]
 

@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cjeaiy8ike4cw" path="res://scenes/player.gd" id="1_3vyb7"]
 [ext_resource type="ArrayMesh" uid="uid://b2tq2iytvdm8d" path="res://MDLS/ball_meshe/wood_mesh.tres" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://cvbovednn7gyl" path="res://scenes/wood_parts.tscn" id="2_y4r1p"]
+[ext_resource type="PackedScene" uid="uid://dlqkhuhtktpie" path="res://scenes/stone_parts.tscn" id="3_d2wvv"]
 [ext_resource type="Shape3D" uid="uid://bximrmlo7sp86" path="res://MDLS/ball_meshe/normal_collison.tres" id="3_dqkch"]
 [ext_resource type="Shape3D" uid="uid://cnqowpt1tot4y" path="res://MDLS/ball_meshe/paper_collison.tres" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://cujf3wnmo0wyq" path="res://scenes/paper_parts.tscn" id="4_3v2ag"]
 [ext_resource type="Script" uid="uid://dxoe3kb8865cs" path="res://scenes/ui.gd" id="5_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://bjprsyvxf1ktj" path="res://SFX/hit/Hit_Wood_Stone.wav" id="6_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://c6my6xoqqkfi4" path="res://Textures/smoke.png" id="7_fjrip"]
@@ -32,8 +35,6 @@ turbulence_noise_scale = 10.0
 [sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
 size = Vector2(1, 1)
 orientation = 2
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tuyoq"]
 
 [sub_resource type="Animation" id="Animation_qlg0r"]
 length = 0.001
@@ -185,12 +186,8 @@ _data = {
 }
 
 [node name="player" type="RigidBody3D" unique_id=893395168 groups=["player"]]
-
 collision_layer = 2
 collision_mask = 2
-
-
-
 gravity_scale = 1.3
 contact_monitor = true
 max_contacts_reported = 8
@@ -198,6 +195,9 @@ linear_damp = 1.7
 angular_damp = 0.2
 script = ExtResource("1_3vyb7")
 camera_follow_speed = 6.0
+wood_parts = ExtResource("2_y4r1p")
+stone_parts = ExtResource("3_d2wvv")
+paper_parts = ExtResource("4_3v2ag")
 
 [node name="ball_model" type="MeshInstance3D" parent="." unique_id=132961432]
 transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
