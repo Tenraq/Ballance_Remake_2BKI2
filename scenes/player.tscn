@@ -14,26 +14,27 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b0wl8"]
 transparency = 1
 vertex_color_use_as_albedo = true
+albedo_color = Color(1.0000322, 1.0039686, 1.0000322, 0.8)
 albedo_texture = ExtResource("7_fjrip")
 billboard_mode = 1
 
 [sub_resource type="Curve" id="Curve_7numd"]
-_data = [Vector2(0, 0), 0.0, 0.12439804, 0, 0, Vector2(0.30967742, 0.22471917), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0, 0.6696429), 0.0, 0.12439804, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_fcnqv"]
 curve = SubResource("Curve_7numd")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yf5fn"]
 emission_shape = 1
-emission_sphere_radius = 0.6
-gravity = Vector3(0, 1, 0)
+emission_sphere_radius = 0.35
+gravity = Vector3(0, 0.5, 0)
 alpha_curve = SubResource("CurveTexture_fcnqv")
 turbulence_noise_strength = 20.0
 turbulence_noise_scale = 10.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
-size = Vector2(1, 1)
+size = Vector2(0.5, 0.5)
 orientation = 2
 
 [sub_resource type="Animation" id="Animation_qlg0r"]
@@ -126,63 +127,10 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_fjrip"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("camera holder/hit:material_override:albedo_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("camera holder/hit:emitting")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_smehm"]
-resource_name = "hit_smoke"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("camera holder/hit:material_override:albedo_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 0.92941177, 0.63529414, 0.2901961), Color(1, 0.92941177, 0.63529414, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("camera holder/hit:emitting")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ur7pv"]
 _data = {
-&"RESET": SubResource("Animation_fjrip"),
-&"hit_smoke": SubResource("Animation_smehm")
+&"RESET": SubResource("Animation_fjrip")
 }
 
 [node name="player" type="RigidBody3D" unique_id=893395168 groups=["player"]]
@@ -203,17 +151,20 @@ paper_parts = ExtResource("4_3v2ag")
 transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
 mesh = ExtResource("2_g2els")
 
-[node name="camera holder" type="Node3D" parent="." unique_id=1851202394]
-top_level = true
-
-[node name="hit" type="GPUParticles3D" parent="camera holder" unique_id=1233397309]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5020478, 0)
+[node name="hit" type="GPUParticles3D" parent="." unique_id=1233397309]
 material_override = SubResource("StandardMaterial3D_b0wl8")
-amount = 46
+emitting = false
+amount = 60
+one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
+interpolate = false
+fract_delta = false
 process_material = SubResource("ParticleProcessMaterial_yf5fn")
 draw_pass_1 = SubResource("PlaneMesh_g4v7s")
+
+[node name="camera holder" type="Node3D" parent="." unique_id=1851202394]
+top_level = true
 
 [node name="Camera" type="Camera3D" parent="camera holder" unique_id=480159961]
 transform = Transform3D(1, 0, 0, 0, 0.7844299, 0.6202175, 0, -0.6202175, 0.7844299, -2.3841858e-07, 3.4457746, 1.0037259)

@@ -47,6 +47,7 @@ var lives = 1
 @export var wood_parts:PackedScene
 @export var stone_parts:PackedScene
 @export var paper_parts:PackedScene
+@onready var hit: GPUParticles3D = $hit
 
 
 
@@ -90,7 +91,8 @@ func _physics_process(delta: float) -> void:
 	lookat_node_3d.global_position = lookat_node_3d.global_position.lerp(global_position, (camera_follow_speed * 1.7)* delta)
 	camera.look_at(lookat_node_3d.position)
 	
-	if Input.is_action_just_pressed("G"):
+	if Input.is_action_just_pressed("G") and hit.emitting == false:
+		hit.emitting = true
 		cycle = cycle + 1
 		if cycle > 2:
 			cycle = 0
