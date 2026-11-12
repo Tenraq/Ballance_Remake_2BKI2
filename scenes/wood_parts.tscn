@@ -1051,9 +1051,9 @@ shadow_mesh = SubResource("ArrayMesh_flk37")
 points = PackedVector3Array(0.26403183, -0.05007878, -0.18512164, 0.26088876, -0.058337867, -0.18979761, 0.20195618, 0.058306023, -0.33494484, -0.06996852, -0.05007878, 0.31475878, -0.030581906, 0.050046936, -0.18640274, 0.19881311, 0.050046936, -0.33962083, -0.075518, -0.058337867, 0.31360584, 0.08409104, -0.058337867, -0.07168132, -0.026653081, 0.05836314, -0.18243136, -0.23218042, 0.058306023, 0.31469476, -0.2376808, 0.050046936, 0.31360584, -0.03401965, -0.058337867, 0.1051088, -0.18385571, 0.050046936, 0.043040097, -0.17874822, 0.05836314, 0.045153886)
 
 [node name="wood_parts" type="Node3D" unique_id=1561389423]
-transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
+transform = Transform3D(0.012476768, 0.449827, 0, -0.449827, 0.012476768, 0, 0, 0, 0.45, 0, 0, 0)
 script = ExtResource("1_lq7ms")
-power = 5.0
+power = 6.0
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1537510167]
 
@@ -1169,7 +1169,7 @@ shape = SubResource("ConvexPolygonShape3D_ugswc")
 [node name="RigidBody3D12" type="RigidBody3D" parent="." unique_id=1806374649]
 
 [node name="wood_ball_parts_012" type="MeshInstance3D" parent="RigidBody3D12" unique_id=1551896289]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40887117, 0.757151, 0.2731991)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4088712, 0.757151, 0.2731991)
 mesh = SubResource("ArrayMesh_0xiwb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D12" unique_id=1771323581]

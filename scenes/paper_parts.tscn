@@ -263,7 +263,7 @@ points = PackedVector3Array(-0.0030451417, 0.10746053, -0.6934667, 0.26950228, 0
 [node name="paper_parts" type="Node3D" unique_id=1498725351]
 transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
 script = ExtResource("1_0k4rx")
-power = 1.0
+power = 0.5
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=565098454]
 mass = 0.2

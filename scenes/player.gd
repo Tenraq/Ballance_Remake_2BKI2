@@ -101,51 +101,51 @@ func _physics_process(delta: float) -> void:
 				var wood_parts_inst:Node3D = wood_parts.instantiate()
 				get_parent().add_child(wood_parts_inst)
 				wood_parts_inst.position = self.position
-				wood_parts_inst.rotation = self.rotation
+				
 			elif current_ball == BallTypes.types.stone:
 				var stone_parts_inst:Node3D = stone_parts.instantiate()
 				get_parent().add_child(stone_parts_inst)
 				stone_parts_inst.position = self.position
-				stone_parts_inst.rotation = self.rotation
+				
 			else:
 				var paper_parts_inst:Node3D = paper_parts.instantiate()
 				get_parent().add_child(paper_parts_inst)
 				paper_parts_inst.position = self.position
-				paper_parts_inst.rotation = self.rotation
+				
 			ballSwitch(BallTypes.types.wood)
 		if cycle == 1:
 			if current_ball == BallTypes.types.wood:
 				var wood_parts_inst:Node3D = wood_parts.instantiate()
 				get_parent().add_child(wood_parts_inst)
 				wood_parts_inst.position = self.position
-				wood_parts_inst.rotation = self.rotation
+				
 			elif current_ball == BallTypes.types.stone:
 				var stone_parts_inst:Node3D = stone_parts.instantiate()
 				get_parent().add_child(stone_parts_inst)
 				stone_parts_inst.position = self.position
-				stone_parts_inst.rotation = self.rotation
+				
 			else:
 				var paper_parts_inst:Node3D = paper_parts.instantiate()
 				get_parent().add_child(paper_parts_inst)
 				paper_parts_inst.position = self.position
-				paper_parts_inst.rotation = self.rotation
+				
 			ballSwitch(BallTypes.types.stone)
 		if cycle == 2:
 			if current_ball == BallTypes.types.wood:
 				var wood_parts_inst:Node3D = wood_parts.instantiate()
 				get_parent().add_child(wood_parts_inst)
 				wood_parts_inst.position = self.position
-				wood_parts_inst.rotation = self.rotation
+				
 			elif current_ball == BallTypes.types.stone:
 				var stone_parts_inst:Node3D = stone_parts.instantiate()
 				get_parent().add_child(stone_parts_inst)
 				stone_parts_inst.position = self.position
-				stone_parts_inst.rotation = self.rotation
+				
 			else:
 				var paper_parts_inst:Node3D = paper_parts.instantiate()
 				get_parent().add_child(paper_parts_inst)
 				paper_parts_inst.position = self.position
-				paper_parts_inst.rotation = self.rotation
+				
 			ballSwitch(BallTypes.types.paper)
 	
 	
