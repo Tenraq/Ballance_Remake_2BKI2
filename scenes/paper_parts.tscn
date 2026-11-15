@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cujf3wnmo0wyq"]
 
-[ext_resource type="Script" uid="uid://dilxsyk8ke2p0" path="res://scenes/paper_parts.gd" id="1_0k4rx"]
+[ext_resource type="Script" uid="uid://dilxsyk8ke2p0" path="res://scripts/paper_parts.gd" id="1_0k4rx"]
 [ext_resource type="Material" uid="uid://hhjl30x7jolk" path="res://MDLS/materials/mat2/paper.tres" id="1_1kjth"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_wvxbg"]

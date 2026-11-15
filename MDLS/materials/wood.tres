@@ -1,7 +1,7 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://8ftcevose1eo"]
 
-[ext_resource type="Texture2D" uid="uid://dwwhvrxfm8cdd" path="res://MDLS/Balls_Photoreal_Wood_02-512x512.png" id="1_y4oxl"]
-[ext_resource type="Texture2D" uid="uid://cvvexpagvfah2" path="res://MDLS/Balls_Photoreal_Wood_02-512x512Nrml.png" id="2_ewt2p"]
+[ext_resource type="Texture2D" uid="uid://dwwhvrxfm8cdd" path="res://MDLS/Blender/textures/Balls_Photoreal_Wood_02-512x512.png" id="1_y4oxl"]
+[ext_resource type="Texture2D" uid="uid://cvvexpagvfah2" path="res://MDLS/Blender/textures/Balls_Photoreal_Wood_02-512x512Nrml.png" id="2_ewt2p"]
 
 [resource]
 resource_name = "wood"

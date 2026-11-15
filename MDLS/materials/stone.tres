@@ -1,7 +1,7 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://gbxpbwjrgfug"]
 
-[ext_resource type="Texture2D" uid="uid://clm3w2l2jy14m" path="res://MDLS/Balls_stone.png" id="1_bomis"]
-[ext_resource type="Texture2D" uid="uid://ctj0vlnhlf2c7" path="res://MDLS/Balls_stone_nrml.png" id="2_h5vcs"]
+[ext_resource type="Texture2D" uid="uid://clm3w2l2jy14m" path="res://MDLS/Blender/textures/Balls_stone.png" id="1_bomis"]
+[ext_resource type="Texture2D" uid="uid://ctj0vlnhlf2c7" path="res://MDLS/Blender/textures/Balls_stone_nrml.png" id="2_h5vcs"]
 
 [resource]
 resource_name = "stone"

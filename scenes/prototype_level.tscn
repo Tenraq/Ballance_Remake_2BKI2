@@ -6,12 +6,12 @@
 [ext_resource type="Material" uid="uid://8ftcevose1eo" path="res://MDLS/materials/wood.tres" id="3_fo4hb"]
 [ext_resource type="PackedScene" uid="uid://mkx8nsgc8fdd" path="res://scenes/sky.tscn" id="4_rn0vy"]
 [ext_resource type="PackedScene" uid="uid://pd2s8l1op6k0" path="res://scenes/box_test.tscn" id="5_jsvdy"]
-[ext_resource type="PackedScene" uid="uid://bb26pnmy7s4oa" path="res://MDLS/map2.glb" id="7_pet5k"]
+[ext_resource type="PackedScene" uid="uid://bb26pnmy7s4oa" path="res://MDLS/glbs/map2.glb" id="7_pet5k"]
 [ext_resource type="PackedScene" uid="uid://jg0s2qus4qa7" path="res://scenes/fan_test.tscn" id="8_bfwj2"]
 [ext_resource type="PackedScene" uid="uid://brgfcu100hfgf" path="res://scenes/blade.tscn" id="9_fo4hb"]
 [ext_resource type="PackedScene" uid="uid://bk7wiwbuxm2s5" path="res://scenes/level_balls.tscn" id="11_ibnf7"]
-[ext_resource type="PackedScene" uid="uid://dk32tgukhsfxi" path="res://MDLS/railtest.glb" id="12_7mqg3"]
-[ext_resource type="PackedScene" uid="uid://brro5iipcpuly" path="res://MDLS/railtest2.glb" id="13_rn0vy"]
+[ext_resource type="PackedScene" uid="uid://dk32tgukhsfxi" path="res://MDLS/glbs/railtest.glb" id="12_7mqg3"]
+[ext_resource type="PackedScene" uid="uid://brro5iipcpuly" path="res://MDLS/glbs/railtest2.glb" id="13_rn0vy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7s42t"]
 albedo_texture = ExtResource("2_061g7")

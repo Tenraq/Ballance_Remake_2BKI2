@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dlqkhuhtktpie"]
 
-[ext_resource type="Script" uid="uid://crmvmlaijlbwp" path="res://scenes/stone_parts.gd" id="1_17s12"]
+[ext_resource type="Script" uid="uid://crmvmlaijlbwp" path="res://scripts/stone_parts.gd" id="1_17s12"]
 [ext_resource type="Texture2D" uid="uid://2pv8hc7cos14" path="res://MDLS/balls_parts/stone_parts_stone.png" id="1_vk6hl"]
 [ext_resource type="Texture2D" uid="uid://bo2w78gs88o5" path="res://MDLS/balls_parts/stone_parts_stone_nrml.png" id="2_17s12"]
 

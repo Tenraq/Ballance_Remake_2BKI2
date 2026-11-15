@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://mkx8nsgc8fdd"]
 
 [ext_resource type="Material" uid="uid://jd3q8l4tvd5n" path="res://MDLS/materials/skybox_mat/sky3.tres" id="1_qk45w"]
-[ext_resource type="Script" uid="uid://28uftp3yc2fj" path="res://scenes/sky.gd" id="2_3hy4n"]
+[ext_resource type="Script" uid="uid://28uftp3yc2fj" path="res://scripts/sky.gd" id="2_3hy4n"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_j4jmm"]
 

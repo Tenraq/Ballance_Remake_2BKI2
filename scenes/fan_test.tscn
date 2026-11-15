@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://jg0s2qus4qa7"]
 
-[ext_resource type="PackedScene" uid="uid://can8j7cqd7o3o" path="res://MDLS/fan_test.glb" id="1_fjl04"]
-[ext_resource type="Script" uid="uid://di5bmrvg2fotl" path="res://scenes/fan_test.gd" id="2_p3aqa"]
-[ext_resource type="PackedScene" uid="uid://d14g574qafcle" path="res://MDLS/fan.glb" id="3_sh5nh"]
+[ext_resource type="PackedScene" uid="uid://can8j7cqd7o3o" path="res://MDLS/glbs/fan_test.glb" id="1_fjl04"]
+[ext_resource type="Script" uid="uid://di5bmrvg2fotl" path="res://scripts/fan_test.gd" id="2_p3aqa"]
+[ext_resource type="PackedScene" uid="uid://d14g574qafcle" path="res://MDLS/glbs/fan.glb" id="3_sh5nh"]
 [ext_resource type="Texture2D" uid="uid://c6my6xoqqkfi4" path="res://Textures/smoke.png" id="4_jh7ti"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j4jmm"]
@@ -90,16 +90,16 @@ orientation = 2
 [node name="fan_test" unique_id=1332495242 instance=ExtResource("1_fjl04")]
 script = ExtResource("2_p3aqa")
 
-[node name="Cube_001" parent="." index="0" unique_id=1621715514]
+[node name="Cube_001" parent="." index="0" unique_id=368325749]
 visible = false
 
-[node name="Cube" parent="." index="1" unique_id=1672750446]
+[node name="Cube" parent="." index="1" unique_id=1688158094]
 visible = false
 
-[node name="StaticBody3D" parent="Cube" index="0" unique_id=1984307917]
+[node name="StaticBody3D" parent="Cube" index="0" unique_id=1045417117]
 visible = false
 
-[node name="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1895612083]
+[node name="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1340532533]
 visible = false
 disabled = true
 

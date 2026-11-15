@@ -1,9 +1,9 @@
 [gd_resource type="MeshLibrary" format=4 uid="uid://6gg4kcg53bp4"]
 
-[ext_resource type="Texture2D" uid="uid://dsrrdugn03iuf" path="res://MDLS/Ballance_tileset_test_ground_Main.jpg" id="1_6cjbm"]
-[ext_resource type="Texture2D" uid="uid://dehaoeme161xy" path="res://MDLS/Ballance_tileset_test_ground_Main_NRML.jpg" id="2_hynpu"]
-[ext_resource type="Texture2D" uid="uid://ctoubvj62inkw" path="res://MDLS/Ballance_tileset_test_ground2.jpg" id="3_0ymbm"]
-[ext_resource type="Texture2D" uid="uid://ogx0er3beeos" path="res://MDLS/Ballance_tileset_test_ground2_NRML.jpg" id="4_ho0yi"]
+[ext_resource type="Texture2D" uid="uid://dsrrdugn03iuf" path="res://MDLS/Blender/textures/Ballance_tileset_test_ground_Main.jpg" id="1_6cjbm"]
+[ext_resource type="Texture2D" uid="uid://dehaoeme161xy" path="res://MDLS/Blender/textures/Ballance_tileset_test_ground_Main_NRML.jpg" id="2_hynpu"]
+[ext_resource type="Texture2D" uid="uid://ctoubvj62inkw" path="res://MDLS/Blender/textures/Ballance_tileset_test_ground2.jpg" id="3_0ymbm"]
+[ext_resource type="Texture2D" uid="uid://ogx0er3beeos" path="res://MDLS/Blender/textures/Ballance_tileset_test_ground2_NRML.jpg" id="4_ho0yi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f0pp8"]
 resource_name = "metal"

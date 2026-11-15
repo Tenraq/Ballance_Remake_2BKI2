@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://brgfcu100hfgf"]
 
-[ext_resource type="PackedScene" uid="uid://dld8fuufhg0kg" path="res://MDLS/blade.glb" id="1_dhxgw"]
-[ext_resource type="Script" uid="uid://fvq5l8bmooi1" path="res://scenes/blade.gd" id="2_l0mm0"]
+[ext_resource type="PackedScene" uid="uid://dld8fuufhg0kg" path="res://MDLS/glbs/blade.glb" id="1_dhxgw"]
+[ext_resource type="Script" uid="uid://fvq5l8bmooi1" path="res://scripts/blade.gd" id="2_l0mm0"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_j4jmm"]
 height = 0.017910004
@@ -58,7 +58,7 @@ script = ExtResource("2_l0mm0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0045719147, 0)
 shape = SubResource("CylinderShape3D_j4jmm")
 
-[node name="Circle" parent="." index="1" unique_id=1783271980]
+[node name="Circle" parent="." index="1" unique_id=1899925353]
 material_override = SubResource("StandardMaterial3D_l655j")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=1332987784]

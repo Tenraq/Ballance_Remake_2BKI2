@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bk7wiwbuxm2s5"]
 
-[ext_resource type="Script" uid="uid://d23fs0jmyvs5i" path="res://scenes/level_balls.gd" id="1_7t8sk"]
+[ext_resource type="Script" uid="uid://d23fs0jmyvs5i" path="res://scripts/level_balls.gd" id="1_7t8sk"]
 [ext_resource type="Texture2D" uid="uid://b64llg35oemhs" path="res://Textures/SBS - Photorealistic Texture Pack 1 - 512x512/512x512/Wood/Photoreal_Wood_04-512x512.png" id="1_qm2p0"]
 [ext_resource type="ArrayMesh" uid="uid://b2tq2iytvdm8d" path="res://MDLS/ball_meshe/wood_mesh.tres" id="1_wtfc1"]
 
