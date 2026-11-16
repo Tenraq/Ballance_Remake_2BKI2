@@ -109,8 +109,10 @@ func _physics_process(delta: float) -> void:
 				
 			else:
 				var paper_parts_inst:Node3D = paper_parts.instantiate()
-				get_parent().add_child(paper_parts_inst)
 				paper_parts_inst.position = self.position
+				get_parent().add_child(paper_parts_inst)
+				
+				
 				
 			ballSwitch(BallTypes.types.wood)
 		if cycle == 1:

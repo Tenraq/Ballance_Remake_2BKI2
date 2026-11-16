@@ -8,9 +8,9 @@ func _ready() -> void:
 	for parts:RigidBody3D in self.get_children():
 		
 		parts.gravity_scale = 0.6
-		parts.set_collision_mask_value(2, true)
+		#parts.set_collision_mask_value(2, true)
 		parts.apply_impulse(parts.get_child(0).global_position * power, self.global_position)
 	
 	
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(10).timeout
 	queue_free()
