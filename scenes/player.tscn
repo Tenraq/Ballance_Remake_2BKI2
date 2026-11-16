@@ -8,7 +8,6 @@
 [ext_resource type="Shape3D" uid="uid://cnqowpt1tot4y" path="res://MDLS/ball_meshe/paper_collison.tres" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://cujf3wnmo0wyq" path="res://scenes/paper_parts.tscn" id="4_3v2ag"]
 [ext_resource type="Script" uid="uid://dxoe3kb8865cs" path="res://scripts/ui.gd" id="5_qlg0r"]
-[ext_resource type="AudioStream" uid="uid://bjprsyvxf1ktj" path="res://SFX/hit/Hit_Wood_Stone.wav" id="6_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://c6my6xoqqkfi4" path="res://Textures/smoke.png" id="7_fjrip"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b0wl8"]
@@ -244,7 +243,6 @@ text = "TEST LEVEL"
 top_level = true
 
 [node name="hitsound" type="AudioStreamPlayer3D" parent="." unique_id=1761032410]
-stream = ExtResource("6_tuyoq")
 
 [node name="rollsound_wood" type="AudioStreamPlayer3D" parent="." unique_id=427016276]
 
